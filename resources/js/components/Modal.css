@@ -1,0 +1,19 @@
+.modal_bg{
+    background-color: #0009;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.modal_content{
+    width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
