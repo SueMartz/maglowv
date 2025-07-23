@@ -54,7 +54,7 @@ class CategoriaController extends Controller
         $data->descripcion = $request->descripcion;
         $data->orden = $request->orden;
         $data->slug = str::slug($request ->nombre);
-        $data->menu = $request->menu ? 1:0;
+      //  $data->menu = $request->menu ? 1:0;
 
         
         if($request->file){

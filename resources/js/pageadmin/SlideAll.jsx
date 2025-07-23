@@ -60,7 +60,7 @@ const SlideAll = () => {
                                                 <td>
                                                     {slide.imagen && (
                                                         <img
-                                                            src={`http://localhost:8000/img/slide/${slide.imagen}`}
+                                                            src={`${import.meta.env.VITE_BACKEND_URL}/img/slide/${slide.imagen}`}
                                                             alt={slide.frase}
                                                             style={{ width: '100px' }}
                                                         />

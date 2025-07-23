@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Config from '../Config';
 import Modal from '../components/Modal';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [empresas, setEmpresas] = useState([]);
@@ -8,11 +9,15 @@ const Home = () => {
   const [datamodal, setDatamodal] = useState([]);
   const [slides, setSlides] = useState([]);
   const [categoriasHome, setCategoriasHome] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [paginas, setPaginas] = useState([]);
 
   useEffect(() => {
     getEmpresas();
     getSlides();
     getCategoriasHome();
+    getPosts();
+    getPaginas();
   }, []);
 
   const getEmpresas = async () => {
@@ -41,9 +46,18 @@ const Home = () => {
     setCategoriasHome(response.data);
   };
 
+  const getPosts = async () => {
+    const res = await Config.getPublicPosts();
+    setPosts(res.data);
+  };
+
+  const getPaginas = async () => {
+    const res = await Config.getPublicPaginas();
+    setPaginas(res.data);
+  };
+
   return (
     <div className="container pt-5 pb-5">
-
       {/* Carrusel de slides */}
       {slides.length > 0 && (
         <div id="carouselExampleCaptions" className="carousel slide mb-5" data-bs-ride="carousel">
@@ -89,7 +103,7 @@ const Home = () => {
             <div className="card shadow-sm border-0 h-100">
               <img
                 src={`http://localhost:8000/img/categoria/${categoria.urlfoto}`}
-                alt={categoria.nombre}
+                alt={categoria.nombre || 'Imagen de categoría'}
                 className="card-img-top img-fluid"
               />
               <div className="card-body text-center">
@@ -125,17 +139,52 @@ const Home = () => {
                 <div className="mt-3" key={empresa.id}>
                   <div className="card-body">
                     <h2 className="fw-bolder">
-                      <a href="*" onClick={(e) => showModal(e, empresa)} style={{ color: '#f08bb4' }}>
+                      <button
+                        onClick={(e) => showModal(e, empresa)}
+                        className="btn btn-link p-0"
+                        style={{ color: '#f08bb4', textDecoration: 'underline' }}
+                      >
                         {empresa.nombre}
-                      </a>
+                      </button>
                     </h2>
                     <p>{empresa.descripcion}</p>
                   </div>
                 </div>
               ))}
-              {modal && <Modal datamodal={datamodal} close={setModal} />}
+              {modal && <Modal datamodal={datamodal} close={() => setModal(false)} />}
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* 📰 Blog y Contenidos */}
+      <div className="pt-5">
+        <h2 className="text-center mb-4">📰 Blog y Contenidos</h2>
+        <div className="row g-4">
+          {posts.map((p) => (
+            <div className="col-md-4" key={`post-${p.id}`}>
+              <div className="card h-100 shadow blog-card">
+                <img src={`/img/post/${p.image}`} className="card-img-top" alt={p.title || 'Imagen del post'} />
+                <div className="card-body">
+                  <h5 className="card-title">{p.title || 'Sin título'}</h5>
+                  <p className="card-text">{p.description?.slice(0, 100)}...</p>
+                  <Link to={`/blog/post/${p.slug}`} className="btn btn-outline-dark btn-sm">Leer más</Link>
+                </div>
+              </div>
+            </div>
+          ))}
+          {paginas.map((pg) => (
+            <div className="col-md-4" key={`pagina-${pg.id}`}>
+              <div className="card h-100 shadow blog-card">
+                <img src={`/img/pagina/${pg.image}`} className="card-img-top" alt={pg.title || 'Imagen de la página'} />
+                <div className="card-body">
+                  <h5 className="card-title">{pg.title || 'Sin título'}</h5>
+                  <p className="card-text">{pg.description?.slice(0, 100)}...</p>
+                  <Link to={`/blog/pagina/${pg.slug}`} className="btn btn-outline-secondary btn-sm">Leer más</Link>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
