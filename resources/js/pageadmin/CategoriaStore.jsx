@@ -19,11 +19,19 @@ const CategoriaStore = () => {
         }
     }
 
+    
     const submitStore = async (e) => {
-        e.preventDefault()
-        await Config.getCategoriaStore({nombre,descripcion,orden,urlfoto})
-        navigate('/admin/categoria')
-    }
+        e.preventDefault();
+    
+        try {
+          await Config.getCategoriaStore({nombre,descripcion,orden,urlfoto});
+          setMessage('Categoria creado exitosamente.');
+          navigate('/admin/categoria');
+        } catch (error) {
+          console.error('Error al crear Categoria:', error);
+          setMessage('Error al crear Catergoria, revise datos o conexión.');
+        }
+      };
 
     return (
         <div className="conteiner bg-light">
