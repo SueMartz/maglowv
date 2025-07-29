@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const base_api_url = "http://localhost:8000/api/v1";
+const base_api_url = VITE_API_URL;
 
 const authHeader = () => {
   const token = sessionStorage.getItem("token");

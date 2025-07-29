@@ -9,7 +9,7 @@
   
   <title>Pastelería Alán</title>
   
-  @vite('resources/js/app.js')
+  @vite(['resources/js/app.js'])
 </head>
 
 <body>
