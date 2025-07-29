@@ -1,6 +1,7 @@
-import axios from "axios";
+import axios from "axios"
 
 const base_api_url = import.meta.env.VITE_API_URL;
+
 
 const authHeader = () => {
   const token = sessionStorage.getItem("token");

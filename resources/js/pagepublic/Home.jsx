@@ -77,7 +77,7 @@ const Home = () => {
           <div className="carousel-inner">
             {slides.map((slide, index) => (
               <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                <img src={`http://localhost:8000/img/slide/${slide.imagen}`} className="d-block w-100" alt={`slide ${index + 1}`} />
+                <img src={`${import.meta.env.VITE_BACKEND_URL}/img/slide/${slide.imagen}`} className="d-block w-100" alt={`slide ${index + 1}`} />
                 <div className="carousel-caption d-none d-md-block">
                   <h5>{slide.frase}</h5>
                   <p>{slide.link}</p>
@@ -102,7 +102,7 @@ const Home = () => {
           <div className="col-sm-4 mb-4" key={categoria.slug}>
             <div className="card shadow-sm border-0 h-100">
               <img
-                src={`http://localhost:8000/img/categoria/${categoria.urlfoto}`}
+                src={`${import.meta.env.VITE_BACKEND_URL}/img/categoria/${categoria.urlfoto}`}
                 alt={categoria.nombre || 'Imagen de categoría'}
                 className="card-img-top img-fluid"
               />
