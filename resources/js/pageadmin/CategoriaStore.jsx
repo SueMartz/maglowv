@@ -9,6 +9,7 @@ const CategoriaStore = () => {
     const [orden, setOrden] = useState("")
     const [urlfoto, setUrlfoto] = useState("")
     const navigate = useNavigate()
+    const [message, setMessage] = useState("");
 
     const handleInputChange= async(e) =>{
         let files = e.target.files
@@ -24,7 +25,7 @@ const CategoriaStore = () => {
         e.preventDefault();
     
         try {
-          await Config.getCategoriaStore({nombre,descripcion,orden,urlfoto});
+          await Config.getCategoriaStore({nombre, slug, descripcion,menu, orden, urlfoto});
           setMessage('Categoria creado exitosamente.');
           navigate('/admin/categoria');
         } catch (error) {
