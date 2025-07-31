@@ -12,7 +12,7 @@ class CategoriaController extends Controller
        //
     public function index()
     {
-        $data = Categoria::get(["id","orden","nombre"]);
+        $data = Categoria::get(["id","urlfoto","slug","orden", "nombre"]);
         return response()->json($data,200);
 
     }
@@ -40,7 +40,7 @@ class CategoriaController extends Controller
     }
     public function show($id)
     {
-        $data = Categoria::select("id", "nombre", "descripcion", "orden", "menu", "urlfoto")
+        $data = Categoria::select("id", "nombre", "descripcion", "orden", "menu", "urlfoto","slug")
                      ->findOrFail($id);
         return response()->json($data, 200);
     }

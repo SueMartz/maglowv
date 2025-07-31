@@ -46,19 +46,21 @@ const Categoria = () => {
               <h1 className='text-center fw-bolder'>Sucursales {categoria.nombre}</h1>
             </div>
           </div>
-          {
-            empresas.map((empresa)=>{
-              return(
-                <div className="card-body" key={empresa.id}>
-                  <h2 className="fw-bolder">
-                    <span  onClick={(e)=>showModal(e,empresa)} role="button" style={{ color: '#0d6efd', cursor: 'pointer' }}>
-                      {empresa.nombre} </span>
-                  </h2>
-                  <p>{empresa.descripcion}</p>
-                </div>
-              )
-            })
-          }
+          {empresas.map((empresa) => (
+  <div className="card mb-4 shadow-sm border-0" key={empresa.id}>
+    <div className="card-body">
+      <button
+        className="btn d-block w-100 fw-bold mb-3"
+        style={{ backgroundColor: '#e83e8c', color: 'white' }}
+        onClick={(e) => showModal(e, empresa)}
+      >
+        {empresa.nombre}
+      </button>
+      <p>{empresa.descripcion}</p>
+    </div>
+  </div>
+))}
+
           
            {modal && <Modal datamodal={datamodal} close={setModal} />}
         </div>

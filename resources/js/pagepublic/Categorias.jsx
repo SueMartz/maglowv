@@ -42,7 +42,11 @@ const Categorias = () => {
 
                       </div>
                       <div className="card-footer">
-                        <Link to={`/categorias/${categoria.slug}`} className='btn btn-primary w-100'>
+                        <Link
+                          to={`/categorias/${categoria.slug}`}
+                          className='btn w-100 mb-2'
+                          style={{ backgroundColor: '#e83e8c', color: 'white' }}
+                        >
                           {categoria.nombre}
                         </Link>
                       </div>

@@ -39,6 +39,7 @@ const CategoriaAll = () => {
                                 <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>IMAGEN</th>
                                         <th>NAME</th>
                                         <th>ACCIÓN</th>
                                     </tr>
@@ -50,7 +51,16 @@ const CategoriaAll = () => {
                                         categorias.map((categoria) => (
                                             <tr key={categoria.id}>
                                                 <td>{categoria.orden}</td>
-                                                <td>{categoria.nombre}</td>
+                                                <td>
+                                                    {categoria.urlfoto && (
+                                                        <img
+                                                            src={`/img/categoria/${categoria.urlfoto}`}
+                                                            alt={categoria.slug}
+                                                            style={{ width: '100px' }}
+                                                        />
+                                                    )}
+                                                </td>
+                                                <td>{categoria.slug}</td>
                                                 <td>
                                                     <Link to={`/admin/categoria/edit/${categoria.id}`} className='btn btn-primary me-2'>Editar</Link>
                                                     <button

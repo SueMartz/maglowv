@@ -47,13 +47,24 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-rosa-pastel shadow-sm">
-      <div className="container">
-        <Link className="navbar-brand" to="/">
-          <img src={`/img/logo.png`} alt="Logo DirEmp" style={{ maxHeight: '60px' }} />
+    <nav className="navbar navbar-expand-lg  shadow-sm py-3">
+      <div className="container d-flex justify-content-between align-items-center position-relative">
+
+        {/* Nav izquierda */}
+        <div className="d-none d-lg-flex gap-3">
+          <Link className="nav-link text-rosa" to="/">Inicio</Link>
+          <Link className="nav-link text-rosa" to="/categorias">Categorías</Link>
+          <Link className="nav-link text-rosa" to="/blog">Blog</Link>
+        </div>
+
+        {/* Logo centrado */}
+        <Link className="navbar-brand position-absolute top-50 start-50 translate-middle" to="/">
+          <img src={`/img/logo.png`} alt="Logo DirEmp" style={{ maxHeight: '50px' }} />
         </Link>
+
+        {/* Botón hamburguesa */}
         <button
-          className="navbar-toggler"
+          className="navbar-toggler ms-auto"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -63,22 +74,22 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
+        {/* Enlaces móviles + login/logout */}
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav mx-auto gap-3">
-            <li className="nav-item">
+          <ul className="navbar-nav ms-auto gap-3 mt-3 mt-lg-0">
+            <li className="nav-item d-lg-none">
               <Link className="nav-link text-rosa" to="/">Inicio</Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item d-lg-none">
               <Link className="nav-link text-rosa" to="/categorias">Categorías</Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item d-lg-none">
               <Link className="nav-link text-rosa" to="/blog">Blog</Link>
             </li>
-          </ul>
-          <ul className="navbar-nav ms-auto">
             {renderLinks()}
           </ul>
         </div>
+
       </div>
     </nav>
   );

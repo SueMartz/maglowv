@@ -11,9 +11,9 @@ class PostController extends Controller
 {
     // GET /api/v1/posts
     public function index()
-    {
-        return response()->json(Post::all(), 200);
-    }
+{
+    return response()->json(Post::orderBy('order')->get(), 200);
+}
 
     // POST /api/v1/posts
     public function store(Request $request)

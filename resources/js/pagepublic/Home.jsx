@@ -57,7 +57,7 @@ const Home = () => {
   };
 
   return (
-    <div className="container pt-5 pb-5">
+    <div className="container-fluid px-0">
       {/* Carrusel de slides */}
       {slides.length > 0 && (
         <div id="carouselExampleCaptions" className="carousel slide mb-5" data-bs-ride="carousel">
@@ -77,10 +77,14 @@ const Home = () => {
           <div className="carousel-inner">
             {slides.map((slide, index) => (
               <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                <img src={`/img/slide/${slide.imagen}`} className="d-block w-100" alt={`slide ${index + 1}`} />
+                <img src={`/img/slide/${slide.imagen}`} className="d-block w-100 h-70 object-fit-cover" alt={`slide ${index + 1}`} />
                 <div className="carousel-caption d-none d-md-block">
                   <h5>{slide.frase}</h5>
-                  <p>{slide.link}</p>
+                  {slide.link && (
+                    <a href={slide.link} className="btn btn-rosa" target="_blank" rel="noopener noreferrer">
+                      Ver más
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
@@ -96,18 +100,19 @@ const Home = () => {
         </div>
       )}
 
-      {/* Categorías para home */}
-      <div className="row justify-content-center mb-5">
+      {/* Categorías para home estilo visual refinado */}
+      <div className="row justify-content-center mb-5 px-2">
         {categoriasHome.map((categoria) => (
-          <div className="col-sm-4 mb-4" key={categoria.slug}>
-            <div className="card shadow-sm border-0 h-100">
+          <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" key={categoria.slug}>
+            <div className="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
               <img
                 src={`/img/categoria/${categoria.urlfoto}`}
                 alt={categoria.nombre || 'Imagen de categoría'}
-                className="card-img-top img-fluid"
+                className="card-img-top object-fit-cover"
+                style={{ height: '200px' }}
               />
-              <div className="card-body text-center">
-                <a href={`/${categoria.slug}`} className="btn btn-outline-dark d-block">
+              <div className="card-body text-center d-flex flex-column justify-content-end">
+                <a href={`/${categoria.slug}`} className="btn btn-rosa mt-3 rounded-pill">
                   {categoria.nombre}
                 </a>
               </div>
@@ -115,6 +120,7 @@ const Home = () => {
           </div>
         ))}
       </div>
+
 
       {/* Buscador y listado de empresas */}
       <div className="row justify-content-center">

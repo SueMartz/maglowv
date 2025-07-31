@@ -1,3 +1,31 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background-color: white;
+}
+
+.btn-rosa {
+  background-color: #e83e8c;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-rosa:hover {
+  background-color: #d63384;
+  color: #fff;
+}
+
+.card img {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
 body{
 
     background-color: #f0f8ff !important;
@@ -79,3 +107,14 @@ body{
   text-decoration: underline;
   font-weight: bold;
 }
+
+.btn-rosa {
+  background-color: #e83e8c; /* Rosa Bootstrap (pink) */
+  color: white;
+  border: none;
+}
+
+.btn-rosa:hover {
+  background-color: #d63384;
+}
+
