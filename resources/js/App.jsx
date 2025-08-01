@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../css/app.css'
+import '@fortawesome/fontawesome-free/css/all.min.css';
 //LAYOUTS
 
 import LayoutPublic from './layouts/LayoutPublic';
@@ -31,6 +32,11 @@ import UserUpdate from "./pageadmin/UserUpdate";
 import CategoriaAll from "./pageadmin/CategoriaAll";
 import CategoriaStore from "./pageadmin/CategoriaStore";
 import CategoriaUpdate from "./pageadmin/CategoriaUpdate";
+//producto
+import ProductoAll from "./pageadmin/ProductoAll";
+import ProductoStore from "./pageadmin/ProductoStore";
+import ProductoUpdate from "./pageadmin/ProductoUpdate";
+//
 import EmpresaAll from "./pageadmin/EmpresaAll";
 import EmpresaStoreAdmin from "./pageadmin/EmpresaStore"
 import EmpresaUpdate from "./pageadmin/EmpresaUpdate";
@@ -85,9 +91,12 @@ const App = () => {
               <Route index element = {<PanelAdmin/>} />
               <Route path ='user' element= {<UserAll/>} />
                <Route path ='user/edit/:id' element= {<UserUpdate/>} />
-               <Route path ='categoria' element= {<CategoriaAll/>} />
+                <Route path ='categoria' element= {<CategoriaAll/>} />
                 <Route path ='categoria/create' element= {<CategoriaStore/>} />
                 <Route path ='categoria/edit/:id' element= {<CategoriaUpdate/>} />
+                <Route path ='producto' element= {<ProductoAll/>} />
+                <Route path ='producto/create' element= {<ProductoStore/>} />
+                <Route path ='producto/edit/:id' element= {<ProductoUpdate/>} />
                 <Route path ='empresa' element={<EmpresaAll/>}/>
                 <Route path ='empresa/create' element={<EmpresaStoreAdmin/>}/> 
                 <Route path ='empresa/edit/:id' element= {<EmpresaUpdate/>} />
@@ -97,9 +106,9 @@ const App = () => {
                 <Route path ='post' element= {<PostAll/>} />
                 <Route path ='post/create' element= {<PostStore/>} />
                 <Route path ='post/edit/:id' element= {<PostUpdate/>} />
-                <Route path= 'pagina' element={<PaginaAll />} />
-                <Route path='pagina/create' element={<PaginaStore />} />
-                <Route path='pagina/edit/:id' element={<PaginaUpdate />} />
+                <Route path = 'pagina' element={<PaginaAll />} />
+                <Route path ='pagina/create' element={<PaginaStore />} />
+                <Route path ='pagina/edit/:id' element={<PaginaUpdate />} />
 
                 
         </Route>

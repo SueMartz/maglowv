@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Empresa;
+use App\Models\Producto;
 use App\Models\Categoria;
 use App\Models\Slide;
 use App\Models\Post;
@@ -35,19 +36,19 @@ class FrontController extends Controller
     }
 
     public function categoria($slug)
-    {
-        $data = [];
-        $categoria = Categoria::whereSlug($slug)->first();
+{
+    $data = [];
+    $categoria = Categoria::whereSlug($slug)->first();
 
-        if (!empty($categoria)) {
-            $data = [
-                'categoria' => $categoria,
-                'empresas'  => $categoria->empresas
-            ];
-        }
-
-        return response()->json($data, 200);
+    if (!empty($categoria)) {
+        $data = [
+            'categoria' => $categoria,
+            'productos' => $categoria->productos()->orderBy('name')->get()
+        ];
     }
+
+    return response()->json($data, 200);
+}
     // Nuevo método para obtener slides
     public function slides()
     {
@@ -78,4 +79,19 @@ class FrontController extends Controller
     {
         return response()->json(Pagina::where('slug', $slug)->firstOrFail());
     }
+    public function categoriasBySlug($slug)
+{
+    $categoria = Categoria::where('slug', $slug)->first();
+
+    if ($categoria) {
+        $productos = $categoria->productos()->orderBy('name')->get();
+        return response()->json([
+            'categoria' => $categoria,
+            'productos' => $productos
+        ]);
+    }
+
+    return response()->json(null);
+}
+
 }

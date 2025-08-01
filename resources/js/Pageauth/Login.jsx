@@ -67,7 +67,7 @@ const Login = () => {
                                 required
                             />
 
-                            <button onClick={submitLogin} className="btn btn-primary w-100">
+                            <button onClick={submitLogin} className="btn w-100" style={{ backgroundColor: '#e83e8c', color: 'white' }}>
                                 ENVIAR
                             </button>
 
@@ -76,7 +76,7 @@ const Login = () => {
                             </p>
                             <hr/>
                             <p className='text-center mt-3'>Primera vez.... debe registrarse</p>
-                            <a href='/register'className="btn btn-primary w-100">REGISTRO</a>
+                            <a href='/register'className="btn w-100" style={{ backgroundColor: '#e83e8c', color: 'white' }}>REGISTRO</a>
                         </div>
                     </div>
                 </div>

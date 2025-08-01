@@ -34,7 +34,9 @@ const Categorias = () => {
                             width: '100%',
                             objectFit: 'contain',
                             backgroundColor: '#f8f9fa',
-                            padding: '10px'
+                            padding: '10px',
+                            borderRadius: '8px',           // Borde suave
+                            boxShadow: '0 2px 6px rgba(0,0,0,0.1)' // Sombra ligera
                           }}
                           alt="Imagen de categoría"
                         />

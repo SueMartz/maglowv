@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\Client\EmpresaController as EmpresaClient;
 use App\Http\Controllers\Api\Admin\SlideController;
 use App\Http\Controllers\Api\Admin\PostController;
 use App\Http\Controllers\Api\Admin\PaginaController;
+use App\Http\Controllers\Api\Admin\ProductoController;
 
 //Ruta publicas
 Route::prefix('v1')->group(function(){
@@ -59,6 +60,7 @@ Route::prefix('v1')->group(function(){
         //::rol admin
         Route::apiResource('/admin/user',UserController::class);
         Route::apiResource('/admin/categoria',CategoriaController::class);
+        Route::apiResource('/admin/producto',ProductoController::class);
         Route::apiResource('/admin/empresa',EmpresaController::class);
         Route::apiResource('/admin/slide', SlideController::class);
         Route::apiResource('/admin/post', PostController::class);

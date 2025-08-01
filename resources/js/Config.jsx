@@ -23,9 +23,16 @@ export default {
   getCategoriaById: (id) => axios.get(`${base_api_url}/admin/categoria/${id}`, authHeader()),
   getCategoriaUpdate: (data, id) => axios.put(`${base_api_url}/admin/categoria/${id}`, data, authHeader()),
   getCategoriaDeleteById: (id) => axios.delete(`${base_api_url}/admin/categoria/${id}`, authHeader()),
+
+  getProductoAll: () => axios.get(`${base_api_url}/admin/producto`, authHeader()),
+  getProductoStore: (data) => axios.post(`${base_api_url}/admin/producto`, data, authHeader()),
+  getProductoById: (id) => axios.get(`${base_api_url}/admin/producto/${id}`, authHeader()),
+  getProductoUpdate: (data, id) => axios.put(`${base_api_url}/admin/producto/${id}`, data, authHeader()),
+  getProductoDeleteById: (id) => axios.delete(`${base_api_url}/admin/producto/${id}`, authHeader()),
+
   //modelo Empresas
   getEmpresaAll: () => axios.get(`${base_api_url}/admin/empresa`, authHeader()),
-  getEmpresaStoreAdmin: (data) => axios.post(`${base_api_url}/client/empresa`, data, authHeader()),
+  getEmpresaStoreAdmin: (data) => axios.post(`${base_api_url}/admin/empresa`, data, authHeader()),
   getEmpresaById: (id) => axios.get(`${base_api_url}/admin/empresa/${id}`, authHeader()),
   getEmpresaUpdate: (data, id) => axios.put(`${base_api_url}/admin/empresa/${id}`, data, authHeader()),
   getEmpresaDeleteById: (id) => axios.delete(`${base_api_url}/admin/empresa/${id}`, authHeader()),

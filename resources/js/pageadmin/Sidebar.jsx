@@ -6,6 +6,7 @@ const Sidebar = () => {
   const menuItems = [
     { to: "/admin/user", label: "Usuarios", icon: <FaUser /> },
     { to: "/admin/categoria", label: "Categorías", icon: <FaTags /> },
+    { to: "/admin/producto", label: "Producto", icon: <FaTags /> },
     { to: "/admin/empresa", label: "Sucursales", icon: <FaBuilding /> },
     { to: "/admin/slide", label: "Slides", icon: <FaImage /> },
     { to: "/admin/post", label: "Posts", icon: <FaFileAlt /> },

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Config from '../Config';
 import Modal from '../components/Modal';
+import WhatsAppButton from '../components/whatsAppButton';
 import { Link } from 'react-router-dom';
+import CookieConsent from "react-cookie-consent";
 
 const Home = () => {
   const [empresas, setEmpresas] = useState([]);
@@ -55,9 +57,11 @@ const Home = () => {
     const res = await Config.getPublicPaginas();
     setPaginas(res.data);
   };
-
+  
   return (
+    
     <div className="container-fluid px-0">
+    
       {/* Carrusel de slides */}
       {slides.length > 0 && (
         <div id="carouselExampleCaptions" className="carousel slide mb-5" data-bs-ride="carousel">
@@ -112,7 +116,7 @@ const Home = () => {
                 style={{ height: '200px' }}
               />
               <div className="card-body text-center d-flex flex-column justify-content-end">
-                <a href={`/${categoria.slug}`} className="btn btn-rosa mt-3 rounded-pill">
+                <a href={`/categorias/${categoria.slug}`} className="btn btn-rosa mt-3 rounded-pill">
                   {categoria.nombre}
                 </a>
               </div>
@@ -188,12 +192,29 @@ const Home = () => {
                   <p className="card-text">{pg.description?.slice(0, 100)}...</p>
                   <Link to={`/blog/pagina/${pg.slug}`} className="btn btn-outline-secondary btn-sm">Leer más</Link>
                 </div>
+                
               </div>
             </div>
           ))}
         </div>
+        <CookieConsent
+        location="bottom"
+        buttonText="Acepto"
+        cookieName="mi_consentimiento_cookie"
+        style={{ background: "#2B373B" }}
+        buttonStyle={{ color: "#fff", background: "#e83e8c", fontSize: "13px" }}
+        expires={150}
+      >
+        Usamos cookies para mejorar tu experiencia en nuestro sitio.{" "}
+        <a href="/politica-cookies" style={{ color: "#f1d600", textDecoration: "underline" }}>
+          Leer más
+        </a>
+      </CookieConsent>
+    
       </div>
+        <WhatsAppButton />
     </div>
+     
   );
 };
 

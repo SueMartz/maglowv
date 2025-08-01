@@ -5,6 +5,14 @@
   background-color: white;
 }
 
+.whatsapp-button {
+  position: fixed;
+  
+  top: 80px;
+  right: 20px;
+  z-index: 1000;
+}
+
 .btn-rosa {
   background-color: #e83e8c;
   color: white;
@@ -27,7 +35,7 @@
 }
 
 body{
-
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f8ff !important;
 
 }
@@ -118,3 +126,16 @@ body{
   background-color: #d63384;
 }
 
+.category-header {
+  font-size: 2.5rem;
+  color: #e83e8c; /* rosa vibrante */
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.category-header span {
+  border-bottom: 4px solid #e83e8c;
+  padding-bottom: 5px;
+}

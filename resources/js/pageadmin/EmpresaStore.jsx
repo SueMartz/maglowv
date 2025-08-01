@@ -3,6 +3,8 @@ import Sidebar from './Sidebar'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import Config from '../Config'
 import Select from '../components/Select'
+import AuthUser from '../Pageauth/AuthUser';
+
 
 const EmpresaStore = () => {
 
@@ -18,7 +20,9 @@ const EmpresaStore = () => {
     const [tiktok, setTiktok] = useState("")
     const [urlfoto, setUrlfoto] = useState("")
     const [categoria_id, setCategoria_id] = useState()
-    
+    const { user } = AuthUser();
+    const [errors, setErrors] = useState({});
+
     const navigate = useNavigate()
 
     const handleInputChange = async (e) => {
@@ -29,87 +33,119 @@ const EmpresaStore = () => {
             setUrlfoto(e.target.result)
         }
     }
-    const getCategoriaId = (v) =>{
+    const getCategoriaId = (v) => {
         setCategoria_id(v)
     }
 
 
     const submitStore = async (e) => {
-        e.preventDefault()
-        await Config.getEmpresaStoreAdmin({ nombre, email, telefono, direccion, website, facebook, youtube, tiktok, descripcion, orden, urlfoto, categoria_id })
-        navigate('/admin/empresa')
+        e.preventDefault();
+        try {
+            await Config.getEmpresaStoreAdmin({
+                nombre, email, telefono, direccion, website, facebook, youtube, tiktok,
+                descripcion, orden, urlfoto, categoria_id, publicado: true, visitas: 0, user_id: user.id
+            });
+            navigate('/admin/empresa');
+        } catch (error) {
+            if (error.response && error.response.data.errors) {
+                setErrors(error.response.data.errors);  // guarda errores por campo
+            } else {
+                console.log("Otro error:", error);
+            }
+        }
     }
 
     return (
-        <div className="conteiner bg-light">
+    <div className="container bg-light">
+  <div className="row">
+    <Sidebar />
+    <div className="col-sm-9 mt-3 mb-3">
+      <div className="card">
+        <div className="card-body">
+          <form onSubmit={submitStore}>
             <div className="row">
-                <Sidebar />
-                <div className="col-sm-9 mt-3 mb-3">
-                    <div className="card">
-                        <div className="card-body">
-                            <form onSubmit={submitStore}>
-                                <div className="form-group">
-                                    <div className="col-sm-8">
-                                        <label>Nombre</label>
-                                        <input className='form-control' value={nombre} onChange={(e) => setNombre(e.target.value)} type='text' />
-                                    </div>
-                                    <div className="col-sm-8">
-                                        <label>E-mail</label>
-                                        <input className='form-control' value={email} onChange={(e) => setEmail(e.target.value)} type='email' />
-                                    </div>
-                                    <div className="col-sm-8">
-                                        <label>Telefono</label>
-                                        <input className='form-control' value={telefono} onChange={(e) => setTelefono(e.target.value)} type='tel' />
-                                    </div>
+              <div className="col-md-6 mb-3">
+                <label>Nombre</label>
+                <input className='form-control' value={nombre} onChange={(e) => setNombre(e.target.value)} type='text' />
+                {errors.nombre && <small className="text-danger">{errors.nombre[0]}</small>}
+              </div>
+              <div className="col-md-6 mb-3">
+                <label>E-mail</label>
+                <input className='form-control' value={email} onChange={(e) => setEmail(e.target.value)} type='email' />
+                {errors.email && <small className="text-danger">{errors.email[0]}</small>}
+              </div>
 
-                                    <div className="col-sm-8">
-                                        <label>Direccion</label>
-                                        <input className='form-control' value={direccion} onChange={(e) => setDireccion(e.target.value)} type='text' />
-                                    </div>
-                                    <div className="col-sm-8">
-                                        <label>Website</label>
-                                        <input className='form-control' value={website} onChange={(e) => setWebsite(e.target.value)} type='url' />
-                                    </div>
-                                    <div className="col-sm-8">
-                                        <label>Facebook</label>
-                                        <input className='form-control' value={facebook} onChange={(e) => setFacebook(e.target.value)} type='url' />
-                                    </div>
-                                    <div className="col-sm-8">
-                                        <label>Youtube</label>
-                                        <input className='form-control' value={youtube} onChange={(e) => setYoutube(e.target.value)} type='url' />
-                                    </div>
-                                    <div className="col-sm-8">
-                                        <label>Tiktok</label>
-                                        <input className='form-control' value={tiktok} onChange={(e) => setTiktok(e.target.value)} type='url' />
-                                    </div>
-                                    <div className="col-sm-8">
-                                        <label>Descripcion</label>
-                                        <textarea className='form-control' value={descripcion} onChange={(e) => setDescripcion(e.target.value)} type='text' />
-                                    </div>
-                                    <div className="col-sm-8">
-                                        <label>Orden</label>
-                                        <input className='form-control' value={orden} onChange={(e) => setOrden(e.target.value)} type='text' />
-                                    </div>
-                                    <div className="col-sm-8">
-                                        <label>Url foto</label>
-                                        <input className="form-control" type="file" onChange={(e) => handleInputChange(e)} />
-                                    </div>
-                                    <label>Categoria Id</label>
-                                    <Select selected ={getCategoriaId}></Select>
-                                </div>
-                                <div className="btn-group mt-3">
-                                    <Link to={-1} className='btn btn-secundary'>Back</Link>
-                                    <button type='submit' className="btn btn-primary">Crear Empresa</button>
+              <div className="col-md-6 mb-3">
+                <label>Telefono</label>
+                <input className='form-control' value={telefono} onChange={(e) => setTelefono(e.target.value)} type='tel' />
+                {errors.telefono && <small className="text-danger">{errors.telefono[0]}</small>}
+              </div>
+              <div className="col-md-6 mb-3">
+                <label>Direccion</label>
+                <input className='form-control' value={direccion} onChange={(e) => setDireccion(e.target.value)} type='text' />
+                {errors.direccion && <small className="text-danger">{errors.direccion[0]}</small>}
+              </div>
 
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+              <div className="col-md-6 mb-3">
+                <label>Website</label>
+                <input className='form-control' value={website} onChange={(e) => setWebsite(e.target.value)} type='url' />
+                {errors.website && <small className="text-danger">{errors.website[0]}</small>}
+              </div>
+              <div className="col-md-6 mb-3">
+                <label>Facebook</label>
+                <input className='form-control' value={facebook} onChange={(e) => setFacebook(e.target.value)} type='url' />
+                {errors.facebook && <small className="text-danger">{errors.facebook[0]}</small>}
+              </div>
+
+              <div className="col-md-6 mb-3">
+                <label>Youtube</label>
+                <input className='form-control' value={youtube} onChange={(e) => setYoutube(e.target.value)} type='url' />
+                {errors.youtube && <small className="text-danger">{errors.youtube[0]}</small>}
+              </div>
+              <div className="col-md-6 mb-3">
+                <label>Tiktok</label>
+                <input className='form-control' value={tiktok} onChange={(e) => setTiktok(e.target.value)} type='url' />
+                {errors.tiktok && <small className="text-danger">{errors.tiktok[0]}</small>}
+              </div>
+
+              <div className="col-md-12 mb-3">
+                <label>Descripcion</label>
+                <textarea className='form-control' value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
+                {errors.descripcion && <small className="text-danger">{errors.descripcion[0]}</small>}
+              </div>
+
+              <div className="col-md-6 mb-3">
+                <label>Orden</label>
+                <input className='form-control' value={orden} onChange={(e) => setOrden(e.target.value)} type='text' />
+                {errors.orden && <small className="text-danger">{errors.orden[0]}</small>}
+              </div>
+
+              <div className="col-md-6 mb-3">
+                <label>Url foto</label>
+                <input className="form-control" type="file" onChange={handleInputChange} />
+                {errors.urlfoto && <small className="text-danger">{errors.urlfoto[0]}</small>}
+              </div>
+
+              <div className="col-md-6 mb-3">
+                <label>Categoria</label>
+                <Select selected={getCategoriaId} />
+                {errors.categoria_id && <small className="text-danger">{errors.categoria_id[0]}</small>}
+              </div>
             </div>
-        </div>
 
-    )
+            <div className="btn-group mt-3">
+              <Link to={-1} className='btn btn-secondary'>Back</Link>
+              <button type='submit' className="btn btn-primary">Crear Empresa</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+)
+
 }
 
 export default EmpresaStore
