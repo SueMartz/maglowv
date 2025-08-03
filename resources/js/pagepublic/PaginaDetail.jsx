@@ -15,7 +15,19 @@ const PaginaDetail = () => {
   return (
     <div className="container py-5">
       <h1 className="mb-4">{pagina.title}</h1>
-      {pagina.image && <img src={`/img/pagina/${pagina.image}`} className="img-fluid mb-4" />}
+      {pagina.image && (
+        <img
+          src={`/img/pagina/${pagina.image}`}
+          alt={`Imagen de ${pagina.title}`}
+          className="img-fluid mb-4"
+          style={{
+            maxHeight: "300px",
+            width: "auto",
+            objectFit: "cover",
+            borderRadius: "8px"
+          }}
+        />
+      )}
       <div dangerouslySetInnerHTML={{ __html: pagina.texttop }} />
       <hr />
       <div dangerouslySetInnerHTML={{ __html: pagina.textbottom }} />

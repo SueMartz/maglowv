@@ -39,9 +39,10 @@ const EmpresaAll =()=> {
                             <table className='table'>
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>NAME</th>
-                                        <th>ACCIÓN</th>
+                                        <th>Orden</th>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Acción</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,8 +50,18 @@ const EmpresaAll =()=> {
                                         <tr><td colSpan="3">Cargando empresas...</td></tr>
                                     ) : (
                                         empresa.map((empresa) => (
-                                            <tr key={empresa.id}>
+                                            <tr key={empresa.orden}>
+                                                    
                                                 <td>{empresa.orden}</td>
+                                                <td>
+                                                    {empresa.urlfoto && (
+                                                        <img
+                                                            src={`/img/empresa/${empresa.urlfoto}`}
+                                                            alt={empresa.slug}
+                                                            style={{ width: '100px' }}
+                                                        />
+                                                    )}
+                                                </td>
                                                 <td>{empresa.nombre}</td>
                                                 <td>
                                                     <Link to={`/admin/empresa/edit/${empresa.id}`} className='btn btn-primary me-2'>Editar</Link>

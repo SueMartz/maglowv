@@ -15,7 +15,18 @@ const PostDetail = () => {
   return (
     <div className="container py-5">
       <h2 className="mb-3">{post.title}</h2>
-      <img src={`/img/post/${post.image}`} alt={post.title} className="img-fluid mb-4" />
+      <img
+        src={`/img/post/${post.image}`}
+        alt={post.title}
+        className="img-fluid mb-4"
+        style={{
+          maxHeight: "300px",
+          width: "auto",
+          objectFit: "cover",
+          borderRadius: "8px",
+        }}
+      />
+
       <div dangerouslySetInnerHTML={{ __html: post.descripcion }} />
     </div>
   );

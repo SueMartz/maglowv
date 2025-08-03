@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Config from "../Config";
-
+import Sidebar from './Sidebar'
 const PostStore = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -75,30 +75,40 @@ const PostStore = () => {
   ];
 
   return (
-    <div className="container py-4">
-      <h2>Crear Post</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="name" className="form-control mb-2" placeholder="Nombre único (slug base)" onChange={handleChange} required />
-        <input type="text" name="title" className="form-control mb-2" placeholder="Título SEO" onChange={handleChange} required />
-        <input type="text" name="description" className="form-control mb-2" placeholder="Descripción SEO" onChange={handleChange} required />
-        
-        <label className="form-label">Contenido HTML:</label>
-        <div className="mb-3">
-          <ReactQuill
-            theme="snow"
-            value={form.descripcion}
-            onChange={handleQuillChange}
-            modules={quillModules}
-            formats={quillFormats}
-            placeholder="Escribe el contenido del post con formato"
-          />
+    <div className="container bg-light">
+      <div className="row">
+        <Sidebar />
+        <div className="col-sm-9 mt-3 mb-3">
+          <div className="card">
+            <div className="card-body"></div>
+            <div className="container py-4">
+              <h2>Crear Post</h2>
+              <form onSubmit={handleSubmit}>
+                <input type="text" name="name" className="form-control mb-2" placeholder="Nombre único (slug base)" onChange={handleChange} required />
+                <input type="text" name="title" className="form-control mb-2" placeholder="Título SEO" onChange={handleChange} required />
+                <input type="text" name="description" className="form-control mb-2" placeholder="Descripción SEO" onChange={handleChange} required />
+
+                <label className="form-label">Contenido HTML:</label>
+                <div className="mb-3">
+                  <ReactQuill
+                    theme="snow"
+                    value={form.descripcion}
+                    onChange={handleQuillChange}
+                    modules={quillModules}
+                    formats={quillFormats}
+                    placeholder="Escribe el contenido del post con formato"
+                  />
+                </div>
+
+                <input type="number" name="order" className="form-control mb-2" placeholder="Orden" onChange={handleChange} />
+                <input type="file" name="image" className="form-control mb-3" onChange={handleImage} />
+
+                <button type="submit" className="btn btn-success">Guardar</button>
+              </form>
+            </div>
+          </div>
         </div>
-
-        <input type="number" name="order" className="form-control mb-2" placeholder="Orden" onChange={handleChange} />
-        <input type="file" name="image" className="form-control mb-3" onChange={handleImage} />
-
-        <button type="submit" className="btn btn-success">Guardar</button>
-      </form>
+      </div>
     </div>
   );
 };

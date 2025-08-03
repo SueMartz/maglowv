@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import Config from '../Config'
 import Select from '../components/Select'
+import Sidebar from './Sidebar'
 
 const ProductoUpdate = () => {
   const { id } = useParams()
@@ -50,62 +51,74 @@ const ProductoUpdate = () => {
   }
 
   return (
-    <div className="container mt-3">
-      <h3>Editar Producto</h3>
-      <form onSubmit={submitForm}>
-        <div className="row">
-          <div className="col-md-6 mb-2">
-            <label>Nombre</label>
-            <input type="text" className="form-control" name="name" value={form.name} onChange={handleInput} required />
-          </div>
-          <div className="col-md-6 mb-2">
-            <label>Título</label>
-            <input type="text" className="form-control" name="title" value={form.title} onChange={handleInput} required />
-          </div>
-          <div className="col-md-6 mb-2">
-            <label>Descripción</label>
-            <input type="text" className="form-control" name="description" value={form.description} onChange={handleInput} required />
-          </div>
-          <div className="col-md-6 mb-2">
-            <label>Detalles</label>
-            <textarea className="form-control" name="details" value={form.details} onChange={handleInput}></textarea>
-          </div>
-          <div className="col-md-4 mb-2">
-            <label>Precio</label>
-            <input type="number" step="0.01" className="form-control" name="price" value={form.price} onChange={handleInput} required />
-          </div>
-          <div className="col-md-4 mb-2">
-            <label>Stock</label>
-            <input type="number" className="form-control" name="stock" value={form.stock} onChange={handleInput} />
-          </div>
-          <div className="col-md-4 mb-2">
-            <label>Orden</label>
-            <input type="number" className="form-control" name="order" value={form.order} onChange={handleInput} />
-          </div>
-          <div className="col-md-6 mb-2">
-            <label>Código</label>
-            <input type="text" className="form-control" name="code" value={form.code} onChange={handleInput} />
-          </div>
-          <div className="col-md-6 mb-2">
-            <label>Nueva Imagen (opcional)</label>
-            <input type="file" className="form-control" onChange={handleFile} accept="image/*" />
-            {form.image && (
-              <img
-                src={`/img/producto/${form.image}`}
-                alt={form.name}
-                style={{ width: '100px', marginTop: '10px' }}
-              />
-            )}
-          </div>
-          <div className="col-md-12 mb-2">
-            <label>Categoría</label>
-            <Select data={form.categoria_id} selected={(value) => setForm({ ...form, categoria_id: value })} />
-          </div>
+    <div className="container-fluid bg-light py-4">
+      <div className="row">
+
+          <Sidebar />
+
+
+        {/* Contenido principal */}
+        <div className="col-md-9 px-4 overflow-auto">
+          <h3>Editar Producto</h3>
+          <form onSubmit={submitForm}>
+            <div className="row">
+              <div className="col-md-6 mb-2">
+                <label>Nombre</label>
+                <input type="text" className="form-control" name="name" value={form.name} onChange={handleInput} required />
+              </div>
+              <div className="col-md-6 mb-2">
+                <label>Título</label>
+                <input type="text" className="form-control" name="title" value={form.title} onChange={handleInput} required />
+              </div>
+              <div className="col-md-6 mb-2">
+                <label>Descripción</label>
+                <input type="text" className="form-control" name="description" value={form.description} onChange={handleInput} required />
+              </div>
+              <div className="col-md-6 mb-2">
+                <label>Detalles</label>
+                <textarea className="form-control" name="details" value={form.details} onChange={handleInput}></textarea>
+              </div>
+              <div className="col-md-4 mb-2">
+                <label>Precio</label>
+                <input type="number" step="0.01" className="form-control" name="price" value={form.price} onChange={handleInput} required />
+              </div>
+              <div className="col-md-4 mb-2">
+                <label>Stock</label>
+                <input type="number" className="form-control" name="stock" value={form.stock} onChange={handleInput} />
+              </div>
+              <div className="col-md-4 mb-2">
+                <label>Orden</label>
+                <input type="number" className="form-control" name="order" value={form.order} onChange={handleInput} />
+              </div>
+              <div className="col-md-6 mb-2">
+                <label>Código</label>
+                <input type="text" className="form-control" name="code" value={form.code} onChange={handleInput} />
+              </div>
+              <div className="col-md-6 mb-2">
+                <label>Nueva Imagen (opcional)</label>
+                <input type="file" className="form-control" onChange={handleFile} accept="image/*" />
+                {form.image && (
+                  <img
+                    src={`/img/producto/${form.image}`}
+                    alt={form.name}
+                    style={{ width: '100px', marginTop: '10px' }}
+                  />
+                )}
+              </div>
+              <div className="col-md-12 mb-2">
+                <label>Categoría</label>
+                <Select data={form.categoria_id} selected={(value) => setForm({ ...form, categoria_id: value })} />
+              </div>
+            </div>
+
+            <button className="btn btn-primary mt-3" type="submit">Actualizar</button>
+          </form>
         </div>
-        <button className="btn btn-primary mt-3" type="submit">Actualizar</button>
-      </form>
+
+      </div>
     </div>
   )
+
 }
 
 export default ProductoUpdate

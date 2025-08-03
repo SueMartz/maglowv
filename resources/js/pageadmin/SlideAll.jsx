@@ -43,7 +43,7 @@ const SlideAll = () => {
                             <table className='table'>
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>Orden</th>
                                         <th>Imagen</th>
                                         <th>Frase</th>
                                         <th>Link</th>
@@ -56,7 +56,7 @@ const SlideAll = () => {
                                     ) : (
                                         slides.map((slide) => (
                                             <tr key={slide.id}>
-                                                <td>{slide.id}</td>
+                                                <td>{slide.posicion}</td>
                                                 <td>
                                                     {slide.imagen && (
                                                         <img

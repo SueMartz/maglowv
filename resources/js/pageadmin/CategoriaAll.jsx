@@ -38,10 +38,10 @@ const CategoriaAll = () => {
                             <table className='table'>
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>IMAGEN</th>
-                                        <th>NAME</th>
-                                        <th>ACCIÓN</th>
+                                        <th>Orden</th>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Acción</th>
                                     </tr>
                                 </thead>
                                 <tbody>

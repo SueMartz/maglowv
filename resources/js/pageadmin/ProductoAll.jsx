@@ -35,25 +35,27 @@ const ProductoAll = () => {
   }
 
   return (
-    <div className="ccontainer bg-light">
+    <div className="container bg-light">
       <div className="row">
         <Sidebar />
         <div className="col-sm-9 mt-3">
           <h3>Productos</h3>
           <Link to="/admin/producto/create" className="btn btn-success mb-3">+ Nuevo producto</Link>
-          <table className="table table-bordered">
+          <table className="table">
             <thead>
               <tr>
+                <th>Orden</th>
                 <th>Imagen</th>
                 <th>Nombre</th>
                 <th>Precio</th>
                 <th>Categoría</th>
-                <th></th>
+                <th>Acción</th>
               </tr>
             </thead>
             <tbody>
               {productos.map((p) => (
                 <tr key={p.id}>
+                  <td>{p.order}</td>
                   <td>
                     {p.image && (
                       <img src={`/img/producto/${p.image}`} alt={p.name} style={{ width: "100px" }} />

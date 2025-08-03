@@ -58,6 +58,7 @@ const ProductoStore = () => {
 
   return (
     <div className="container-fluid bg-light">
+      
       <div className="row">
         <Sidebar />
         <div className="col-sm-9 mt-3 mb-3">

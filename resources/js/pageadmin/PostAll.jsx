@@ -39,12 +39,12 @@ const PostAll = () => {
               <Link to="/admin/post/create" className="btn btn-primary mb-3">
                 Crear nuevo post
               </Link>
-              <table className="table table-bordered">
+              <table className="table">
                 <thead>
                   <tr>
-                    <th>Título</th>
-                    <th>Imagen</th>
                     <th>Orden</th>
+                    <th>Imagen</th>
+                    <th>Título</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
@@ -56,7 +56,7 @@ const PostAll = () => {
                   ) : (
                     posts.map((p) => (
                       <tr key={p.id}>
-                        <td>{p.title}</td>
+                        <td>{p.order}</td>
                         <td>
                           {p.image ? (
                             <img src={`/img/post/${p.image}`} width="120" />
@@ -64,7 +64,9 @@ const PostAll = () => {
                             "Sin imagen"
                           )}
                         </td>
-                        <td>{p.order}</td>
+                        <td>{p.title}</td>
+                        
+                        
                         <td>
                           <Link to={`/admin/post/edit/${p.id}`} className="btn btn-primary btn-sm me-2">
                             Editar

@@ -41,9 +41,10 @@ const PaginaAll = () => {
               <Link to="/admin/pagina/create" className="btn btn-primary mb-3">
                 Crear nueva página
               </Link>
-              <table className="table table-bordered">
+              <table className="table ">
                 <thead>
                   <tr>
+                    <th>Orden</th>
                     <th>Nombre</th>
                     <th>Imagen</th>
                     <th>Titulo</th>
@@ -58,6 +59,7 @@ const PaginaAll = () => {
                   ) : (
                     paginas.map((p) => (
                       <tr key={p.id}>
+                        <td>{p.id}</td>
                         <td>{p.name}</td>
                         <td>
                           {p.image ? (
