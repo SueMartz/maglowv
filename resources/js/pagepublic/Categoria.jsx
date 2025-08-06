@@ -41,6 +41,8 @@ const Categoria = () => {
           Productos por categoría: {categoria.nombre}
         </h1>
 
+        <p className="small text-center">{categoria.descripcion}</p>
+
         <div className="row">
           {productos.map((producto) => (
             <div className="col-sm-4 mb-4" key={producto.id}>
