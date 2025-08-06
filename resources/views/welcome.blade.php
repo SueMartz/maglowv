@@ -7,7 +7,7 @@
   
   <link rel="shortcut icon" href="/img/logo.png" type="image/png"/>
   
-  <title>Pastelería Alán</title>
+  <title>Esplendor Verde.arte</title>
   
   @vite(['resources/js/app.js'])
 </head>

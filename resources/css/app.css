@@ -14,14 +14,14 @@
 }
 
 .btn-rosa {
-  background-color: #e83e8c;
+  background-color: #FBC02D;
   color: white;
   border: none;
   transition: background-color 0.3s ease;
 }
 
 .btn-rosa:hover {
-  background-color: #d63384;
+  background-color: #FBC02D;
   color: #fff;
 }
 
@@ -36,21 +36,29 @@
 
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f8ff !important;
+    background-color: #FAFAFA !important;
 
 }
 
 .text-rosa {
-  color: #e754b1; /* Cambia este valor por el tono exacto de rosa de tu logo */
+  color: #008EDD; /* Cambia este valor por el tono exacto de rosa de tu logo */
 }
 
 .text-rosa:hover {
-  color: #d03e9c; /* Un tono más oscuro para el hover */
+  color: #008EDD; /* Un tono más oscuro para el hover */
+  text-decoration: none;
+}
+.text-center{
+  color: #008EDD; /* Un tono más oscuro para el hover */
+  text-decoration: none;
+}
+.mb-4{
+  color: #008EDD; /* Un tono más oscuro para el hover */
   text-decoration: none;
 }
 
 .bg-rosa-pastel {
-  background-color: #f8c8dc !important;
+  background-color: #4CAF50 !important;
 }
 
 /* Estilo para imágenes del carrusel */
@@ -117,18 +125,18 @@ body{
 }
 
 .btn-rosa {
-  background-color: #e83e8c; /* Rosa Bootstrap (pink) */
+  background-color: #008EDD; /* Rosa Bootstrap (pink) */
   color: white;
   border: none;
 }
 
 .btn-rosa:hover {
-  background-color: #d63384;
+  background-color: #008EDD;
 }
 
 .category-header {
   font-size: 2.5rem;
-  color: #e83e8c; /* rosa vibrante */
+  color: #008EDD; /* rosa vibrante */
   position: relative;
   display: inline-block;
   margin-bottom: 1.5rem;
@@ -136,6 +144,6 @@ body{
 }
 
 .category-header span {
-  border-bottom: 4px solid #e83e8c;
+  border-bottom: 4px solid #008EDD;
   padding-bottom: 5px;
 }

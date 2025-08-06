@@ -1,7 +1,7 @@
 import React from 'react';
 
 const WhatsAppButton = () => {
-  const phoneNumber = '5215550500329'; // ← Reemplaza con tu número (con lada y sin espacios)
+  const phoneNumber = '5215576087760'; // ← Reemplaza con tu número (con lada y sin espacios)
   const message = encodeURIComponent('¡Hola! Quiero más información.');
 
   return (
