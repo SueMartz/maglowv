@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Sidebar from './Sidebar'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import Config from '../Config'
+import slugify from 'slugify';
 
 const CategoriaStore = () => {
     const [nombre, setNombre] = useState('')
@@ -10,6 +11,8 @@ const CategoriaStore = () => {
     const [urlfoto, setUrlfoto] = useState("")
     const navigate = useNavigate()
     const [message, setMessage] = useState("");
+    const slug = slugify(nombre, { lower: true, strict: true });
+    const menu = true;
 
     const handleInputChange= async(e) =>{
         let files = e.target.files
@@ -23,6 +26,8 @@ const CategoriaStore = () => {
     
     const submitStore = async (e) => {
         e.preventDefault();
+         const slug = slugify(nombre, { lower: true, strict: true });
+         const menu = true; // Asignar manualmente por ahora
     
         try {
           await Config.getCategoriaStore({nombre, slug, descripcion,menu, orden, urlfoto});
