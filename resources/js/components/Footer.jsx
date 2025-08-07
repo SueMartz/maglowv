@@ -9,7 +9,7 @@ const Footer = () => {
         </p>
 
         <div className="d-flex justify-content-center gap-4 mb-2">
-          <a href="https://www.facebook.com/share/16rDZmpmaX/" target="_blank" rel="noopener noreferrer" className="text-white fs-4">
+          <a href="https://www.facebook.com/share/1CzhTf7RwB/" target="_blank" rel="noopener noreferrer" className="text-white fs-4">
             <i className="fab fa-facebook"></i>
           </a>
           <a href="https://www.instagram.com/esplendorverde.arte/" target="_blank" rel="noopener noreferrer" className="text-white fs-4">
