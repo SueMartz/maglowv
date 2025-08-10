@@ -11,6 +11,7 @@ const Sidebar = () => {
     { to: "/admin/slide", label: "Slides", icon: <FaImage /> },
     { to: "/admin/post", label: "Posts", icon: <FaFileAlt /> },
     { to: "/admin/pagina", label: "Páginas", icon: <FaFile /> },
+    { to: "/admin/comentario", label: "Comentario", icon: <FaFile /> },
   ];
 
   return (

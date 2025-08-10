@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Config from '../Config';
 import { useNavigate } from 'react-router-dom';
+import Sidebar from './Sidebar';
 
 const SlideStore = () => {
   const [frase, setFrase] = useState('');
@@ -37,6 +38,7 @@ const SlideStore = () => {
   return (
     <div className="container bg-light pt-5">
       <div className="row">
+        <Sidebar/>
         <div className="col-sm-6 mx-auto">
           <div className="card shadow">
             <div className="card-body">

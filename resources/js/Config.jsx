@@ -79,6 +79,14 @@ export default {
   getPublicPosts: () => axios.get(`${base_api_url}/public/blog/posts`),
   getPublicPaginas: () => axios.get(`${base_api_url}/public/blog/paginas`),
 
+  // Comentarios públicos (sin auth)
+  //ComentariosTodos: () => axios.get(`${base_api_url}/public/comentarios`),
 
+  ComentariosAdd: (data) => axios.post(`${base_api_url}/public/comentarios`, data),
+  getComentariosAprobados: () => axios.get(`${base_api_url}/public/comentarios`),
+  getComentariosPendientes: () => axios.get(`${base_api_url}/admin/comentarios/pendientes`, authHeader()),
+  aprobarComentario: (id) => axios.put(`${base_api_url}/admin/comentarios/${id}/aprobar`, null, authHeader()),
+  eliminarComentario: (id) => axios.delete(`${base_api_url}/admin/comentarios/${id}`, authHeader()),
+  
 
 };

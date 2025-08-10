@@ -12,37 +12,41 @@ use App\Http\Controllers\Api\Admin\SlideController;
 use App\Http\Controllers\Api\Admin\PostController;
 use App\Http\Controllers\Api\Admin\PaginaController;
 use App\Http\Controllers\Api\Admin\ProductoController;
+use App\Http\Controllers\Api\Admin\ComentarioController; // Asegúrate que este controlador exista y esté correcto
 
 Route::prefix('v1')->group(function () {
-
-    //::public
+    // Rutas públicas
     Route::get('/public/empresas/{quantity}', [FrontController::class, 'empresas']);
     Route::post('/public/empresas/search', [FrontController::class, 'search']);
     Route::get('/public/categorias/{slug}', [FrontController::class, 'categoria']);
     Route::get('/public/categorias', [FrontController::class, 'categorias']);
     Route::get('/public/slides', [FrontController::class, 'slides']);
     Route::get('/public/categorias-home', [FrontController::class, 'categoriasHome']);
+
+    Route::post('/public/comentarios', [FrontController::class, 'ComentariosAdd']); // para crear comentario público
+    Route::get('/public/comentarios', [FrontController::class, 'comentariosAprobados']); // para listar solo aprobados
+
     Route::get('/public/blog/posts', [FrontController::class, 'posts']);
     Route::get('/public/blog/paginas', [FrontController::class, 'paginas']);
     Route::get('/public/blog/post/{slug}', [FrontController::class, 'postBySlug']);
     Route::get('/public/blog/pagina/{slug}', [FrontController::class, 'paginaBySlug']);
 
-    //::auth
+    // Autenticación
     Route::post('/auth/register', [AuthController::class, 'register']);
     Route::post('/auth/login', [AuthController::class, 'login']);
 
-    //::private (requiere autenticación)
+    // Rutas protegidas con autenticación Sanctum
     Route::middleware('auth:sanctum')->group(function () {
 
-        //::auth logout
+        // Logout
         Route::post('/auth/logout', [AuthController::class, 'logout']);
 
-        //::rol cliente
+        // Rutas rol cliente
         Route::prefix('client')->as('client.')->group(function () {
             Route::apiResource('empresa', EmpresaClient::class);
         });
 
-        //::rol admin
+        // Rutas rol admin
         Route::prefix('admin')->as('admin.')->group(function () {
             Route::apiResource('user', UserController::class);
             Route::apiResource('categoria', CategoriaController::class);
@@ -51,11 +55,16 @@ Route::prefix('v1')->group(function () {
             Route::apiResource('slide', SlideController::class);
             Route::apiResource('post', PostController::class);
             Route::apiResource('pagina', PaginaController::class);
+
+            // Comentarios admin: aquí no usas apiResource porque tienes métodos específicos
+            Route::get('comentarios/pendientes', [ComentarioController::class, 'pendientes']);
+            Route::put('comentarios/{id}/aprobar', [ComentarioController::class, 'aprobar']);
+            Route::delete('comentarios/{id}', [ComentarioController::class, 'destroy']);
         });
     });
 });
 
-// Ruta de verificación de usuario autenticado
+// Ruta para verificar usuario autenticado
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

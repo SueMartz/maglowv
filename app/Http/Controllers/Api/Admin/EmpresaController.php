@@ -35,7 +35,7 @@ class EmpresaController extends Controller
         'publicado'   => 'nullable|boolean',
         'orden'       => 'nullable|integer',
         'visitas'     => 'nullable|integer',
-        'categoria_id'=> 'required|exists:categorias,id',
+        
         'user_id'     => 'required|exists:users,id'
     ]);
 

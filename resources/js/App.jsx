@@ -53,6 +53,7 @@ import PaginaAll from "./pageadmin/PaginaAll";
 import PaginaStore from "./pageadmin/PaginaStore";
 import PaginaUpdate from "./pageadmin/PaginaUpdate";
 
+import ComentarioAdmin from "./pageadmin/ComentarioAdmin"; 
 
 // ROL CLIENTE 
 import PanelClient from "./pageclient/PanelClient";
@@ -109,7 +110,7 @@ const App = () => {
                 <Route path = 'pagina' element={<PaginaAll />} />
                 <Route path ='pagina/create' element={<PaginaStore />} />
                 <Route path ='pagina/edit/:id' element={<PaginaUpdate />} />
-
+                <Route path='comentario' element={<ComentarioAdmin />} /> {/* <- esta */}
                 
         </Route>
             <Route path="/cliente" element ={<LayoutClient/>}>

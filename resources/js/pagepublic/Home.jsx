@@ -4,6 +4,8 @@ import Modal from '../components/Modal';
 import WhatsAppButton from '../components/whatsAppButton';
 import { Link } from 'react-router-dom';
 import CookieConsent from "react-cookie-consent";
+import ComentarioForm from './ComentarioForm';
+
 
 const Home = () => {
   const [empresas, setEmpresas] = useState([]);
@@ -12,6 +14,9 @@ const Home = () => {
   const [slides, setSlides] = useState([]);
   const [categoriasHome, setCategoriasHome] = useState([]);
   const [posts, setPosts] = useState([]);
+
+  const [comentarios, setComentarios] = useState([]);
+
   const [paginas, setPaginas] = useState([]);
 
   useEffect(() => {
@@ -20,6 +25,8 @@ const Home = () => {
     getCategoriasHome();
     getPosts();
     getPaginas();
+    
+    getComentarios();
   }, []);
 
   const getEmpresas = async () => {
@@ -30,6 +37,16 @@ const Home = () => {
   const search = async (e) => {
     const response = await Config.searchEmpresas({ text: e });
     setEmpresas(response.data);
+  };
+ 
+
+  const getComentarios = async () => {
+    try {
+      const response = await Config.getComentariosAprobados();
+      setComentarios(response.data);
+    } catch (error) {
+      console.error('Error al obtener comentarios:', error);
+    }
   };
 
   const showModal = (e, empresa) => {
@@ -57,11 +74,11 @@ const Home = () => {
     const res = await Config.getPublicPaginas();
     setPaginas(res.data);
   };
-  
+
   return (
-    
+
     <div className="container-fluid px-0">
-    
+
       {/* Carrusel de slides */}
       {slides.length > 0 && (
         <div id="carouselExampleCaptions" className="carousel slide mb-5" data-bs-ride="carousel">
@@ -129,7 +146,7 @@ const Home = () => {
       {/* Buscador y listado de empresas */}
       <div className="row justify-content-center">
         <div className="col-sm-8">
-          <h1 className="text-center text-rosa fw-bolder">Sucursales</h1>
+          <h1 className="text-center text-rosa fw-bolder">Contacto</h1>
 
           <div className="card mb-4">
             <div className="card-body">
@@ -192,29 +209,48 @@ const Home = () => {
                   <p className="card-text">{pg.description?.slice(0, 100)}...</p>
                   <Link to={`/blog/pagina/${pg.slug}`} className="btn btn-outline-secondary btn-sm">Leer más</Link>
                 </div>
-                
+
               </div>
             </div>
           ))}
         </div>
+        <div>
+          <ComentarioForm/>
+        </div>
+        {/* Comentarios de Clientes */}
+        <div className="my-5">
+          <h2 className="text-center mb-4">Comentarios de Clientes</h2>
+          {comentarios.length === 0 && <p className="text-center">No hay comentarios aún.</p>}
+          <div className="row justify-content-center">
+            {comentarios.map((c) => (
+              <div key={c.id} className="col-md-6 mb-3">
+                <div className="card p-3 shadow-sm rounded">
+                  <p className="mb-1">"{c.comentario}"</p>
+                  <p className="fw-bold text-end">- {c.nombre}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
         <CookieConsent
-        location="bottom"
-        buttonText="Acepto"
-        cookieName="mi_consentimiento_cookie"
-        style={{ background: "#2B373B" }}
-        buttonStyle={{ color: "#fff", background: "#e83e8c", fontSize: "13px" }}
-        expires={150}
-      >
-        Usamos cookies para mejorar tu experiencia en nuestro sitio.{" "}
-        <a href="/politica-cookies" style={{ color: "#f1d600", textDecoration: "underline" }}>
-          Leer más
-        </a>
-      </CookieConsent>
-    
+          location="bottom"
+          buttonText="Acepto"
+          cookieName="mi_consentimiento_cookie"
+          style={{ background: "#2B373B" }}
+          buttonStyle={{ color: "#fff", background: "#2814ddff", fontSize: "13px" }}
+          expires={150}
+        >
+          Usamos cookies para mejorar tu experiencia en nuestro sitio.{" "}
+          <a href="/politica-cookies" style={{ color: "#f1d600", textDecoration: "underline" }}>
+            Leer más
+          </a>
+        </CookieConsent>
+
       </div>
-        <WhatsAppButton />
+      <WhatsAppButton />
     </div>
-     
+
+
   );
 };
 

@@ -19,7 +19,7 @@ const EmpresaStore = () => {
     const [youtube, setYoutube] = useState("")
     const [tiktok, setTiktok] = useState("")
     const [urlfoto, setUrlfoto] = useState("")
-    const [categoria_id, setCategoria_id] = useState()
+    
     const { user } = AuthUser();
     const [errors, setErrors] = useState({});
 
@@ -33,9 +33,7 @@ const EmpresaStore = () => {
             setUrlfoto(e.target.result)
         }
     }
-    const getCategoriaId = (v) => {
-        setCategoria_id(v)
-    }
+   
 
 
     const submitStore = async (e) => {
@@ -43,7 +41,7 @@ const EmpresaStore = () => {
         try {
             await Config.getEmpresaStoreAdmin({
                 nombre, email, telefono, direccion, website, facebook, youtube, tiktok,
-                descripcion, orden, urlfoto, categoria_id, publicado: true, visitas: 0, user_id: user.id
+                descripcion, orden, urlfoto, publicado: true, visitas: 0, user_id: user.id
             });
             navigate('/admin/empresa');
         } catch (error) {
@@ -126,11 +124,7 @@ const EmpresaStore = () => {
                 {errors.urlfoto && <small className="text-danger">{errors.urlfoto[0]}</small>}
               </div>
 
-              <div className="col-md-6 mb-3">
-                <label>Categoria</label>
-                <Select selected={getCategoriaId} />
-                {errors.categoria_id && <small className="text-danger">{errors.categoria_id[0]}</small>}
-              </div>
+              
             </div>
 
             <div className="btn-group mt-3">

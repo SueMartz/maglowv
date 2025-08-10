@@ -8,6 +8,7 @@ use App\Models\Categoria;
 use App\Models\Slide;
 use App\Models\Post;
 use App\Models\Pagina;
+use App\Models\Comentario;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -63,6 +64,25 @@ class FrontController extends Controller
         return response()->json($data, 200);
     }
 
+    public function ComentariosAdd(Request $request)
+{
+    $request->validate([
+        'nombre' => 'required|string|max:255',
+        'comentario' => 'required|string',
+        'email' => 'nullable|email'
+    ]);
+
+    $comentario = Comentario::create($request->all());
+
+    return response()->json(['message' => 'Comentario enviado, pendiente de aprobación.'], 201);
+}
+
+    public function comentariosAprobados()
+{
+    $comentarios = Comentario::where('aprobado', true)->orderByDesc('created_at')->get();
+    return response()->json($comentarios, 200);
+}
+
     public function posts()
     {
         return response()->json(Post::orderBy('order')->get());
@@ -80,6 +100,7 @@ class FrontController extends Controller
         return response()->json(Pagina::where('slug', $slug)->firstOrFail());
     }
     public function categoriasBySlug($slug)
+
 {
     $categoria = Categoria::where('slug', $slug)->first();
 
