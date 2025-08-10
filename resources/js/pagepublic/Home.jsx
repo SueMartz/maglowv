@@ -25,7 +25,7 @@ const Home = () => {
     getCategoriasHome();
     getPosts();
     getPaginas();
-    
+
     getComentarios();
   }, []);
 
@@ -38,7 +38,7 @@ const Home = () => {
     const response = await Config.searchEmpresas({ text: e });
     setEmpresas(response.data);
   };
- 
+
 
   const getComentarios = async () => {
     try {
@@ -215,7 +215,10 @@ const Home = () => {
           ))}
         </div>
         <div>
-          <ComentarioForm/>
+          <div className="comentarios mt-5 pt-3">
+            {/* contenido de comentarios */}
+          </div>
+          <ComentarioForm />
         </div>
         {/* Comentarios de Clientes */}
         <div className="my-5">
@@ -226,7 +229,9 @@ const Home = () => {
               <div key={c.id} className="col-md-6 mb-3">
                 <div className="card p-3 shadow-sm rounded">
                   <p className="mb-1">"{c.comentario}"</p>
-                  <p className="fw-bold text-end">- {c.nombre}</p>
+                  <p className="fw-bold text-end">
+                    - <a href={`mailto:${c.mail}`} className="text-decoration-none">{c.nombre}</a>
+                  </p>
                 </div>
               </div>
             ))}
