@@ -159,28 +159,137 @@ const Home = () => {
               />
             </div>
           </div>
+          <div className="container">
+            {empresas.map((empresa) => (
+              <div
+                key={empresa.id}
+                className="card mb-4 shadow-sm rounded"
+                style={{ padding: '20px' }}
+              >
+                <div className="d-flex flex-column flex-md-row align-items-center">
+                  {/* Foto */}
+                  {empresa.urlfoto ? (
+                    <img
+                      src={`/img/empresa/${empresa.urlfoto}`}
+                      alt={`Foto de ${empresa.nombre}`}
+                      className="img-fluid rounded"
+                      style={{ width: '180px', height: '180px', objectFit: 'cover', marginRight: '20px', marginBottom: '15px' }}
+                    />
+                  ) : (
+                    <div
+                      style={{
+                        width: '180px',
+                        height: '180px',
+                        backgroundColor: '#ddd',
+                        borderRadius: '8px',
+                        marginRight: '20px',
+                        marginBottom: '15px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#888',
+                        fontStyle: 'italic',
+                      }}
+                    >
+                      Sin foto
+                    </div>
+                  )}
 
-          <div className="card">
-            <div className="card-body">
-              {empresas.map((empresa) => (
-                <div className="mt-3" key={empresa.id}>
-                  <div className="card-body">
-                    <h2 className="fw-bolder">
-                      <button
-                        onClick={(e) => showModal(e, empresa)}
-                        className="btn btn-link p-0"
-                        style={{ color: '#f08bb4', textDecoration: 'underline' }}
-                      >
-                        {empresa.nombre}
-                      </button>
-                    </h2>
-                    <p>{empresa.descripcion}</p>
+                  {/* Información */}
+                  <div className="flex-grow-1">
+                    <h3 className="mb-2" style={{ color: '#d63384' }}>
+                      {empresa.nombre}
+                    </h3>
+
+                    {empresa.descripcion && <p>{empresa.descripcion}</p>}
+
+                    {empresa.email && (
+                      <p>
+                        <strong>Email:</strong>{' '}
+                        <a href={`mailto:${empresa.email}`}>{empresa.email}</a>
+                      </p>
+                    )}
+
+                    {empresa.telefono && (
+                      <p>
+                        <strong>Teléfono:</strong> {empresa.telefono}
+                      </p>
+                    )}
+
+                    {empresa.direccion && (
+                      <p>
+                        <strong>Dirección:</strong> {empresa.direccion}
+                      </p>
+                    )}
+
+                    {empresa.website && (
+                      <p>
+                        <strong>Website:</strong>{' '}
+                        <a href={empresa.website} target="_blank" rel="noopener noreferrer">
+                          {empresa.website}
+                        </a>
+                      </p>
+                    )}
+
+                    {empresa.facebook && (
+                      <p>
+                        <strong>Facebook:</strong>{' '}
+                        <a href={empresa.facebook} target="_blank" rel="noopener noreferrer">
+                          {empresa.facebook}
+                        </a>
+                      </p>
+                    )}
+
+                    {empresa.youtube && (
+                      <p>
+                        <strong>Youtube:</strong>{' '}
+                        <a href={empresa.youtube} target="_blank" rel="noopener noreferrer">
+                          {empresa.youtube}
+                        </a>
+                      </p>
+                    )}
+
+                    {empresa.tiktok && (
+                      <p>
+                        <strong>Tiktok:</strong>{' '}
+                        <a href={empresa.tiktok} target="_blank" rel="noopener noreferrer">
+                          {empresa.tiktok}
+                        </a>
+                      </p>
+                    )}
+
+                    {empresa.orden !== null && empresa.orden !== undefined && (
+                      <p>
+                        <strong>Orden:</strong> {empresa.orden}
+                      </p>
+                    )}
                   </div>
+
+                  {/* Mapa */}
+                  {empresa.latitud && empresa.longitud && (
+                    <div
+                      className="mt-3 mt-md-0"
+                      style={{ width: '300px', height: '180px', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 0 8px rgba(0,0,0,0.1)' }}
+                    >
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        frameBorder="0"
+                        style={{ border: 0 }}
+                        src={`https://www.google.com/maps?q=${empresa.latitud},${empresa.longitud}&hl=es;z=14&output=embed`}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title={`Mapa de ${empresa.nombre}`}
+                      ></iframe>
+                    </div>
+                  )}
                 </div>
-              ))}
-              {modal && <Modal datamodal={datamodal} close={() => setModal(false)} />}
-            </div>
+              </div>
+            ))}
           </div>
+
+
         </div>
       </div>
 
@@ -229,6 +338,10 @@ const Home = () => {
               <div key={c.id} className="col-md-6 mb-3">
                 <div className="card p-3 shadow-sm rounded">
                   <p className="mb-1">"{c.comentario}"</p>
+                  {/* Aquí agregamos las estrellas */}
+                  <p className="text-end mb-1" style={{ color: '#f4c150', fontSize: '1.2rem' }}>
+                    {"★".repeat(c.rating)}{"☆".repeat(5 - c.rating)}
+                  </p>
                   <p className="fw-bold text-end">
                     - <a href={`mailto:${c.mail}`} className="text-decoration-none">{c.nombre}</a>
                   </p>

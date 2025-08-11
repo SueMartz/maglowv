@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Config from "../Config"; // ajusta la ruta si hace falta
-import Sidebar from './Sidebar' 
+import Sidebar from './Sidebar'
 
 export default function ComentarioAdmin() {
   const [pendientes, setPendientes] = useState([]);
@@ -36,16 +36,21 @@ export default function ComentarioAdmin() {
   return (
     <div className="container bg-light pt-5">
       <div className="row">
-        <Sidebar/>
+        <Sidebar />
         <div className="col-sm-6 mx-auto">
           <div className="card shadow">
             <div className="card-body"></div>
-    
+
             <h2 className="text-xl font-bold mb-4">Comentarios Pendientes</h2>
             {pendientes.length > 0 ? (
               pendientes.map((c) => (
                 <div key={c.id} className="p-3 mb-3 bg-yellow-100 rounded shadow">
                   <p className="font-semibold">{c.nombre}</p>
+                  {/* Aquí agregamos las estrellas */}
+                  <p className="text-end mb-1" style={{ color: '#f4c150', fontSize: '1.2rem' }}>
+                    {"★".repeat(c.rating)}{"☆".repeat(5 - c.rating)}
+                  </p>
+
                   <p className="font-semibold">{c.email}</p>
                   <p>{c.comentario}</p>
                   <div className="mt-2">

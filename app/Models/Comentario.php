@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comentario extends Model
 {
-    protected $fillable = ['nombre', 'email', 'comentario', 'aprobado'];
+    
+    protected $fillable = ['nombre', 'email', 'comentario', 'rating', 'aprobado'];
 }

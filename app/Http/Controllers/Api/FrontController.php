@@ -69,7 +69,8 @@ class FrontController extends Controller
     $request->validate([
         'nombre' => 'required|string|max:255',
         'comentario' => 'required|string',
-        'email' => 'nullable|email'
+        'email' => 'nullable|email',
+        'rating' => 'nullable|integer|min:1|max:5'  // <-- nuevo campo rating validado
     ]);
 
     $comentario = Comentario::create($request->all());
