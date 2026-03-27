@@ -18,4 +18,4 @@
 Jul 29 00:29:39 susana systemd[1]: Starting The Apache HTTP Server...
 Jul 29 00:29:39 susana apachectl[239170]: [Tue Jul 29 00:29:39.863857 2025] [so:warn] [pid 239170] AH01574: module php_module is already loaded, skipping
 Jul 29 00:29:39 susana apachectl[239170]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 146.71.77.169. Set the 'ServerName' directive globally to suppress this message
-Jul 29 00:29:39 susana systemd[1]: Started The Apache HTTP Server.
+Jul 29 00:29:39 susana systemd[1]: Ststored The Apache HTTP Server.

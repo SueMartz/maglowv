@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
 
         // Crear el usuario admin
         $user = User::firstOrCreate(
-            ['email' => 'admin@esplendorverde.arte'],
+            ['email' => 'admin@Jeax.store'],
             [
                 'name' => 'Test User',
                 'password' => Hash::make('12345678'),
@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             $user->assignRole($role);
         }
 
-        // Esto sería redundante si usas Spatie, pero si quieres asegurarte:
+        // Esto sería redundante si usas Spatie, pero si quieres asegurstore:
         DB::table('model_has_roles')->updateOrInsert([
             'role_id' => $role->id,
             'model_type' => 'App\Models\User',

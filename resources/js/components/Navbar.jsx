@@ -47,8 +47,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg  shadow-sm py-3">
-      <div className="container d-flex justify-content-between align-items-center position-relative">
+    <nav className="navbar navbar-expand-lg shadow-sm py-5 react-navbar">
+
+      <div className="container-fluid ">
+
 
         {/* Nav izquierda */}
         <div className="d-none d-lg-flex gap-3">
@@ -58,21 +60,12 @@ const Navbar = () => {
         </div>
 
         {/* Logo centrado */}
-        <Link className="navbar-brand position-absolute top-50 start-50 translate-middle" to="/">
-          <img src={`/img/logo.png`} alt="Logo DirEmp" style={{ maxHeight: '50px' }} />
+        <Link className="navbar-brand position-absolute start-50 translate-middle-x"
+          style={{ top: '-15px' }}>
+          <img src={`/img/logo.png`} alt="Logo DirEmp" style={{ maxHeight: '350px' }} />
         </Link>
 
-        {/* Botón hamburguesa */}
-        <button
-          className="navbar-toggler ms-auto"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
+       
 
         {/* Enlaces móviles + login/logout */}
         <div className="collapse navbar-collapse" id="navbarNav">
