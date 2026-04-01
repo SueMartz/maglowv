@@ -40,7 +40,7 @@
   font-size: 26px;
   line-height: 1;
   cursor: pointer;
-  color: #555;
+  color: #999292;
 }
 
 .modal-close:hover {
@@ -48,8 +48,8 @@
 }
 
 .btn-open-comment {
-  background: linear-gradient(135deg, #e83e8c, #ff6aa2);
-  color: #fff;
+  background: linear-gradient(135deg, #857f81, #888284);
+  color: #f0ed5a;
   border: none;
   padding: 12px 22px;
   border-radius: 25px;
@@ -62,8 +62,8 @@
   box-shadow: 0 10px 20px rgba(232, 62, 140, 0.3);
 }
 .btn-open-comment {
-  background: linear-gradient(135deg, #e83e8c, #ff6aa2);
-  color: white;
+  background: linear-gradient(135deg, #857f81, #857f81);
+  color: #f0ed5a;
   border: none;
   padding: 12px 20px;
   border-radius: 25px;
@@ -121,7 +121,7 @@
 }
 
 .react-card-body {
-  padding: 25px;
+  padding: 125px;
 }
 
 .form-control {
@@ -131,7 +131,7 @@
 }
 
 .form-control:focus {
-  border-color: #e83e8c;
+  border-color: #5f585b;
   box-shadow: 0 0 0 2px rgba(232, 62, 140, 0.1);
 }
 
@@ -191,7 +191,7 @@
   width: 100%;
   padding: 10px;
   border-radius: 10px;
-  background: #e83e8c;
+  background: #5f585b;
   color: #fff;
   text-decoration: none;
   font-weight: 500;
@@ -199,7 +199,7 @@
 }
 
 .category-btn:hover {
-  background: #d63384;
+  background: #5f585b;
   color: #fff;
 }
 
@@ -276,9 +276,9 @@
 }
 
 .product-btn:hover {
-  background: #e83e8c;
+  background: #5f585b;
   color: white;
-  border-color: #e83e8c;
+  border-color: #5f585b;
 }
 
 .sabores-hero{
@@ -303,7 +303,7 @@
 
 /* TOP TEXTO */
 .sabores-hero .top-text{
-  color: #e91e63;
+  color: #5f585b;
   font-size: 14px;
   font-weight: 600;
 }
@@ -390,7 +390,7 @@
 
 
 .top-text{
-  color: #d81b60; /* más sofisticado */
+  color: #5f585b; /* más sofisticado */
 }
 
 /* =========================
@@ -553,7 +553,7 @@
 .btn-slide {
   display: inline-block;
   margin-top: 8px;
-  background: #e91e63;
+  background: #5f585b;
   color: #fff;
   padding: 6px 12px;
   border-radius: 8px;
@@ -791,7 +791,7 @@ text-decoration:none;
 }
 
 .react-blog-section h2{
- font-family: 'Playfair Display', serif;
+ 
   font-size: 64px;
   font-weight: 700;
   line-height: 1.1;
@@ -800,7 +800,7 @@ text-decoration:none;
 }
 
 .sucursales-hero h2{
-  font-family: 'Playfair Display', serif;
+
   font-size: 64px;
   font-weight: 700;
   line-height: 1.1;
@@ -902,4 +902,36 @@ color:#FBC02D;
   max-width: 100%;
   max-height: 400px;
   object-fit: contain;
+}
+
+
+.jeax-blog-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;   /* 👈 muestra TODA la imagen */
+  background-color: #000; /* opcional: relleno elegante */
+}
+
+.card-img-top {
+  height: 150px;      /* 👈 aquí la haces más pequeña */
+  width: 100%;
+  object-fit: cover;  /* mantiene proporción bonita */
+}
+
+.blog-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2));
+}
+
+.blog-content {
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+  color: #fff;
+  padding: 15px;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
 }

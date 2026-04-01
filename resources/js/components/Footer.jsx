@@ -26,15 +26,15 @@ const Footer = () => {
             <h5 className="fw-bold">Jeax</h5>
 
             <p className="mb-2">
-              Abierto todos los días de 7 a. m. a 9 p. m.
+              Abierto todos los días de 10 a. m. a 7 p. m.
             </p>
 
             <p className="mb-2">
-              Av. Oceania , Estado de México
+              Av Oceanía 291, Pensador Mexicano, Venustiano Carranza, 15510 Ciudad de México, CDMX
             </p>
 
             <p className="mb-3">
-              Teléfono: 55-0000-0000
+              Teléfono: 55 48 48 82 80
             </p>
 
             <div className="d-flex gap-3 fs-5">

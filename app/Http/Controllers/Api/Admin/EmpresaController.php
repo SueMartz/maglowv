@@ -6,6 +6,7 @@ use App\Models\Empresa;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 
 class EmpresaController extends Controller
@@ -36,7 +37,7 @@ class EmpresaController extends Controller
         'orden'       => 'nullable|integer',
         'visitas'     => 'nullable|integer',
         
-        'user_id'     => 'required|exists:users,id'
+        
     ]);
 
     // Crear instancia sin imagen aún
@@ -56,6 +57,7 @@ class EmpresaController extends Controller
         file_put_contents($filePath, $image_base64);
 
         $data->urlfoto = $fileName;
+        $data->user_id = Auth::id();
     }
 
     $data->save();
@@ -64,30 +66,58 @@ class EmpresaController extends Controller
 }
     public function show($id)
     {
-        $data = Empresa::select('id', 'nombre', 'orden', 'publicado')->find($id);
+        $data = Empresa::select('nombre', 'email', 'telefono', 'direccion', 'latitud', 'longitud', 'website', 'facebook', 'youtube', 'tiktok', 'descripcion', 'urlfoto', 'publicado', 'orden', 'visitas')->find($id);
         return response()->json($data,200);
     }
 
-    public function update(Request $request,$id){
-        $data = Empresa::find($id);
-        
-        $data->fill($request->all());
-        
-        if($request->urlfoto){
-            $img = $request->urlfoto;
-            $folderPath = "/img/empresa";
-            $image_parts = explode(";base64,",$img);
-            $image_type_aux = explode("image/",$image_parts[0]);
+     public function update(Request $request, $id)
+{
+    $request->validate([
+    'nombre'      => 'required|string|max:50',
+    'email'       => 'nullable|email|max:50|unique:empresas,email,'.$id,
+    'telefono'    => 'nullable|string|max:250',
+    'direccion'   => 'nullable|string|max:250',
+    'website'     => 'nullable|string|max:50',
+    'facebook'    => 'nullable|string|max:50',
+    'youtube'     => 'nullable|string|max:50',
+    'tiktok'      => 'nullable|string|max:50',
+    'descripcion' => 'nullable|string',
+    'file'        => 'nullable|string', // base64
+    'publicado'   => 'nullable|boolean',
+    'orden'       => 'nullable|integer',
+    ]);
+
+    $data = Empresa::find($id);
+    if (!$data) {
+        return response()->json(['error' => 'Empresa no encontrada'], 404);
+    }
+
+    $data->fill($request->only([
+        'nombre', 'telefono', 'direccion', 'email', 'descripcion', 'latitud', 'longitud',
+        'orden', 'website', 'facebook', 'youtube', 'tiktok'
+    ]));
+
+    if ($request->file) {
+        try {
+            $img = $request->file;
+            $folderPath = "/img/empresa/";
+            $image_parts = explode(";base64,", $img);
+            $image_type_aux = explode("image/", $image_parts[0]);
             $image_type = $image_type_aux[1];
             $image_base64 = base64_decode($image_parts[1]);
-            $file = $folderPath . Str:: slug($request->nombre) . '.' . $image_type;
-            file_put_contents(public_path($file),$image_base64);
-            $data->urlfoto = Str::slug($request->nombre) . '.' .$image_type;
+            $filename = Str::slug($request->nombre) . '-' . time() . '.' . $image_type;
+            $file = $folderPath . $filename;
+            file_put_contents(public_path($file), $image_base64);
+            $data->urlfoto = $filename;
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'No se pudo guardar la imagen'], 500);
         }
-       
-        $data->save();
-        return response()->json($data, 200);
     }
+
+    $data->save();
+
+    return response()->json($data, 200);
+}
 
     public function destroy( $id)
     {

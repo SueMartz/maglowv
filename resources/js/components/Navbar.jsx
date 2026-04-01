@@ -47,7 +47,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg shadow-sm py-5 react-navbar">
+    <><nav className="navbar navbar-expand-lg shadow-sm py-5 react-navbar">
 
       <div className="container-fluid ">
 
@@ -84,7 +84,12 @@ const Navbar = () => {
         </div>
 
       </div>
-    </nav>
+    </nav><div className="promo-bar">
+        <div className="promo-track">
+          <span>🏁 Los rines que TODOS quieren… están aquí 👀 🏁</span>
+          
+        </div>
+      </div></>
   );
 };
 

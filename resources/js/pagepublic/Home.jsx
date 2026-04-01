@@ -22,6 +22,7 @@ const Home = () => {
   const [datamodal, setDatamodal] = useState([]);
   const [slides, setSlides] = useState([]);
   const [categorias, setCategorias] = useState([]);
+  const [categoriasHome, setCategoriasHome] = useState([]);
   const [posts, setPosts] = useState([]);
   const [comentarios, setComentarios] = useState([]);
   const [paginas, setPaginas] = useState([]);
@@ -30,7 +31,7 @@ const Home = () => {
   useEffect(() => {
     getEmpresas();
     getSlides();
-    getCategorias();
+    getCategoriasHome();
     getPosts();
     getPaginas();
     getComentarios();
@@ -66,6 +67,11 @@ const Home = () => {
   const getSlides = async () => {
     const response = await Config.getSlides();
     setSlides(response.data);
+  };
+
+  const getCategoriasHome = async () => {
+    const response = await Config.getCategoriasHome();
+    setCategoriasHome(response.data);
   };
 
   const getCategorias = async () => {
@@ -137,17 +143,25 @@ const Home = () => {
           900: { slidesPerView: 3 }
         }}
       >
-        {categorias.map((categoria) => (
+        {categoriasHome.map((categoria) => (
           <SwiperSlide key={categoria.id}>
             <div className="category-card">
-              <div className="category-img-container">
+              <div className="card-body">
                 <img
-                  src={categoria.image}
-                  alt={categoria.nombre}
-                  className="category-img"
+                  src={`/img/categoria/${categoria.urlfoto || 'foto.jpg'}`}
+                  className="mx-auto d-block img-fluid"
+                  style={{
+                    height: '150px',
+                    width: '100%',
+                    objectFit: 'contain',
+                    backgroundColor: '#f8f9fa',
+                    padding: '10px',
+                    borderRadius: '8px',           // Borde suave
+                    boxShadow: '0 2px 6px rgba(0,0,0,0.1)' // Sombra ligera
+                  }}
+                  alt="Imagen de categoría"
                 />
               </div>
-
               <div className="category-footer">
                 <Link
                   to={`/categorias/${categoria.slug}`}
@@ -192,8 +206,8 @@ const Home = () => {
                       src={`/img/empresa/${empresa.urlfoto}`}
                       alt={empresa.nombre}
                       style={{
-                        width: "120px",
-                        height: "90px",
+                        width: "150x",
+                        height: "120px",
                         objectFit: "cover",
                         borderRadius: "8px",
                         marginRight: "15px"
@@ -208,7 +222,7 @@ const Home = () => {
                       <p className="mb-1 small">{empresa.descripcion}</p>
                       <p className="mb-1 small">
                         Horario de la tienda
-                        de 7 a. m. a 9 p. m. todos los días.
+                        de 10 a. m. a 7 p. m. todos los días.
                       </p>
 
                       <div className="d-flex gap-2 mt-2">
@@ -234,36 +248,73 @@ const Home = () => {
         <div className="row g-4">
           {posts.map((p) => (
             <div className="col-md-4" key={`post-${p.id}`}>
-              <div className="react-card h-100 shadow blog-card">
+              <div className="react-card blog-card position-relative overflow-hidden h-100">
+
+                {/* Imagen */}
                 <img
                   src={`/img/post/${p.image}`}
-                  className="card-img-top"
+                  className="jeax-blog-img"
                   alt={p.title || 'Imagen del post'}
                 />
-                <div className="card-body">
-                  <h5 className="card-title">{p.title || 'Sin título'}</h5>
-                  <p className="card-text">{p.description?.slice(0, 100)}...</p>
-                  <Link to={`/blog/post/${p.slug}`} className="react-btn btn-outline-dark btn-sm">
-                    Leer más
+
+                {/* Overlay oscuro */}
+                <div className="blog-overlay"></div>
+
+                {/* Contenido */}
+                <div className="card-body blog-content">
+
+                  {/* Badge */}
+                  <span className="badge bg-warning text-dark mb-2">
+                    🔥 Transformación
+                  </span>
+
+                  {/* Título */}
+                  <h5 className="card-title fw-bold">
+                    {p.title || 'Sin título'}
+                  </h5>
+
+                  {/* Descripción */}
+                  <p className="card-text small">
+                    {p.description?.slice(0, 90)}...
+                  </p>
+
+                  {/* Botón */}
+                  <Link
+                    to={`/blog/post/${p.slug}`}
+                    className="btn btn-light btn-sm mt-2"
+                  >
+                    Ver resultado
                   </Link>
+
                 </div>
+
               </div>
             </div>
           ))}
 
           {paginas.map((pg) => (
             <div className="col-md-4" key={`pagina-${pg.id}`}>
-              <div className="react-card h-100 shadow blog-card">
+              <div className="react-card blog-card position-relative overflow-hidden h-100">
                 <img
                   src={`/img/pagina/${pg.image}`}
-                  className="card-img-top"
+                  className="jeax-blog-img"
                   alt={pg.title || 'Imagen de la página'}
                 />
-                <div className="card-body">
-                  <h5 className="card-title">{pg.title || 'Sin título'}</h5>
+                {/* Overlay oscuro */}
+                <div className="blog-overlay"></div>
+
+                {/* Contenido */}
+                <div className="card-body blog-content">
+                   {/* Badge */}
+                  <span className="badge bg-warning text-dark mb-2">
+                    🔥 Transformación
+                  </span>
+
+                  <h5 className="card-title fw-bold">{pg.title || 'Sin título'}</h5>
+                  
                   <p className="card-text">{pg.description?.slice(0, 100)}...</p>
-                  <Link to={`/blog/pagina/${pg.slug}`} className="react-btn btn-outline-secondary btn-sm">
-                    Leer más
+                  <Link to={`/blog/pagina/${pg.slug}`} className="btn btn-light btn-sm mt-2">
+                    Ver resultado
                   </Link>
                 </div>
               </div>
@@ -271,7 +322,7 @@ const Home = () => {
           ))}
         </div>
 
-        <div className="container my-5">
+        <div className="container my-4">
           <div className="text-center mb-4">
             <button className="btn-open-comment" onClick={() => setShowModal(true)}>
               ✍️ Dejar comentario

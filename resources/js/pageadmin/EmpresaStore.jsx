@@ -3,7 +3,7 @@ import Sidebar from './Sidebar'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import Config from '../Config'
 import Select from '../components/Select'
-import AuthUser from '../Pageauth/AuthUser';
+
 
 
 const EmpresaStore = () => {
@@ -22,7 +22,7 @@ const EmpresaStore = () => {
   const [tiktok, setTiktok] = useState("")
   const [urlfoto, setUrlfoto] = useState("")
 
-  const { user } = AuthUser();
+  
   const [errors, setErrors] = useState({});
 
   const navigate = useNavigate()
@@ -43,7 +43,7 @@ const EmpresaStore = () => {
     try {
       await Config.getEmpresaStoreAdmin({
         nombre, email, telefono, direccion, website, facebook, youtube, tiktok,
-        descripcion, orden, urlfoto, latitud, longitud, publicado: true, visitas: 0, user_id: user.id
+        descripcion, orden, urlfoto, latitud, longitud, publicado: true, visitas: 0
       });
       navigate('/admin/empresa');
     } catch (error) {

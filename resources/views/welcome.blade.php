@@ -7,7 +7,7 @@
   
   <link rel="shortcut icon" href="/img/logo.png" type="image/png"/>
   
-  <title>Esplendor Verde.art</title>
+  <title>Jeax Rines</title>
   
   @vite(['resources/js/app.js'])
 </head>
