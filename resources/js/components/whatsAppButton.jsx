@@ -2,8 +2,8 @@
 import React from 'react';
 
 const WhatsAppButton = () => {
-  const phoneNumber = '+5215548488280'; // ← Tu número
-  const message = encodeURIComponent('¡Hola! Necesito Información, me gustaría hacer una cita');
+  const phoneNumber = '5215548488280'; // ← Tu número
+  const message = encodeURIComponent('¡Hola! Necesito Información,');
 
   return (
     <a
@@ -34,7 +34,7 @@ const WhatsAppButton = () => {
         e.currentTarget.style.transform = 'scale(1)';
       }}
     >
-      <span style={{ marginRight: '10px' }}>💬 Haz tu cita por WhatsApp</span>
+      <span style={{ marginRight: '10px' }}>💬 Contactonos por WhatsApp</span>
       <img
         src="/img/whatsapp--v1.png" // ← Cambia este archivo si quieres otro logo
         alt="WhatsApp"

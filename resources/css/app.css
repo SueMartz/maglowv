@@ -8,7 +8,7 @@
 .whatsapp-button {
   position: fixed;
   
-  top: 80px;
+  top: 200px;
   right: 20px;
   z-index: 1000;
 }
@@ -69,41 +69,6 @@ body{
 
 
 
-.blog-card {
-  transition: all 0.3s ease-in-out;
-}
-.blog-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-.card-img-top {
-  height: 200px;
-  object-fit: cover;
-}
-.blog-card {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  transition: box-shadow 0.3s;
-  overflow: hidden;
-}
-
-.blog-card:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-
-
-.blog-card-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.blog-card-description {
-  font-size: 0.9rem;
-  color: #555;
-}
 
 .navbar-nav .nav-link.active {
   color: #000 !important;

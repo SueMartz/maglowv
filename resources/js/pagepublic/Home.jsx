@@ -145,31 +145,20 @@ const Home = () => {
       >
         {categoriasHome.map((categoria) => (
           <SwiperSlide key={categoria.id}>
-            <div className="category-card">
-              <div className="card-body">
+            <div className="circle-card">
+
+              <Link to={`/categorias/${categoria.slug}`} className="circle-link">
                 <img
                   src={`/img/categoria/${categoria.urlfoto || 'foto.jpg'}`}
-                  className="mx-auto d-block img-fluid"
-                  style={{
-                    height: '150px',
-                    width: '100%',
-                    objectFit: 'contain',
-                    backgroundColor: '#f8f9fa',
-                    padding: '10px',
-                    borderRadius: '8px',           // Borde suave
-                    boxShadow: '0 2px 6px rgba(0,0,0,0.1)' // Sombra ligera
-                  }}
-                  alt="Imagen de categoría"
+                  className="circle-img"
+                  alt={categoria.nombre}
                 />
+              </Link>
+
+              <div className="circle-title">
+                {categoria.nombre}
               </div>
-              <div className="category-footer">
-                <Link
-                  to={`/categorias/${categoria.slug}`}
-                  className="category-btn"
-                >
-                  {categoria.nombre}
-                </Link>
-              </div>
+
             </div>
           </SwiperSlide>
         ))}
@@ -305,13 +294,13 @@ const Home = () => {
 
                 {/* Contenido */}
                 <div className="card-body blog-content">
-                   {/* Badge */}
+                  {/* Badge */}
                   <span className="badge bg-warning text-dark mb-2">
                     🔥 Transformación
                   </span>
 
                   <h5 className="card-title fw-bold">{pg.title || 'Sin título'}</h5>
-                  
+
                   <p className="card-text">{pg.description?.slice(0, 100)}...</p>
                   <Link to={`/blog/pagina/${pg.slug}`} className="btn btn-light btn-sm mt-2">
                     Ver resultado
