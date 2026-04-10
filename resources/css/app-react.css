@@ -573,7 +573,7 @@
 }
 
 .card-slide img {
-  width: 100%;
+  width: 80%;
   height: 320px;
   object-fit: cover;
   border-radius: 18px;
