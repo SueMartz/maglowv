@@ -34,7 +34,7 @@ const WhatsAppButton = () => {
         e.currentTarget.style.transform = 'scale(1)';
       }}
     >
-      <span style={{ marginRight: '10px' }}>Agenda Hoy 📅</span>
+      <span style={{ marginRight: '10px' }}>Te ayudo</span>
       <img
         src="/img/whatsapp--v1.png" // ← Cambia este archivo si quieres otro logo
         alt="WhatsApp"
