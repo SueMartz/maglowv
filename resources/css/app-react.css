@@ -565,6 +565,10 @@
 }
 
 .card-slide {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
   position: relative;
 }
 
@@ -573,10 +577,13 @@
   height: 320px;
   object-fit: cover;
   border-radius: 18px;
+  display: block;
+  margin: 0 auto;
 }
 
 .slide-caption {
   position: absolute;
+  top: 50%;
   bottom: 15px;
   left: 15px;
   background: rgba(0, 0, 0, 0.45);

@@ -29,8 +29,13 @@ const SliderHome = ({ slides }) => {
               <div className="slide-caption">
                 <h5>{slide.frase}</h5>
                 {slide.link && (
-                  <a href={slide.link} className="btn-slide">
-                    Ver más
+                  <a
+                    href={`https://wa.me/5215548488280?text=${encodeURIComponent('¡Hola! Quiero más información')}`}
+                    className="btn-slide"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Más Información
                   </a>
                 )}
               </div>

@@ -20,70 +20,68 @@ const Login = () => {
 
   const submitLogin = async (e) => {
     e.preventDefault();
-    await axios.get('/sanctum/csrf-cookie').then((response)=>{
-       Config.getLogin({email, password})
-      .then(({ data }) => {
-        if(data.success){
+    await axios.get('/sanctum/csrf-cookie').then((response) => {
+      Config.getLogin({ email, password })
+        .then(({ data }) => {
+          if (data.success) {
 
-          //console.log(data.message)
-          setToken(
-            data.user,
-            data.token,
-            data.user.roles[0].name
-          )
+            //console.log(data.message)
+            setToken(
+              data.user,
+              data.token,
+              data.user.roles[0].name
+            )
 
-        }else{
-          console.log(data.message)
-        }
+          } else {
+            console.log(data.message)
+          }
 
-      })
+        })
 
     })
 
-   
-    }
-    return (
-      <div className="container min-vh-100 d-flex justify-content-center align-items-center">
-            <div className="row w-100 justify-content-center">
-                <div className="col-sm-4">
-                    <div className="card shadow">
-                        <div className="card-body">
-                            <h1 className="text-center fw-bolder mb-4">LOGIN</h1>
-                            <input
-                                type="email"
-                                className="form-control mb-3"
-                                placeholder="Email:"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
 
-                            <input
-                                type="password"
-                                className="form-control mb-3"
-                                placeholder="Password:"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-
-                            <button onClick={submitLogin} className="btn w-100" style={{ backgroundColor: '#008EDD', color: 'white' }}>
-                                ENVIAR
-                            </button>
-
-                            <p className="text-center mt-3">
-                              {message}
-                            </p>
-                            <hr/>
-                            <p className='text-center mt-3'>Primera vez.... debe registrarse</p>
-                            <a href='/register'className="btn w-100" style={{ backgroundColor: '#008EDD', color: 'white' }}>REGISTRO</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    )
   }
+  return (
+    <div className="container min-vh-100 d-flex justify-content-center align-items-center">
+      <div className="row w-100 justify-content-center">
+        <div className="col-sm-4">
+          <div className="card shadow">
+            <div className="card-body">
+              <h1 className="text-center fw-bolder mb-4">LOGIN ADMINISTRADOR</h1>
+              
+              <input
+                type="email"
+                className="form-control mb-3"
+                placeholder="Email:"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
 
-  export default Login
+              <input
+                type="password"
+                className="form-control mb-3"
+                placeholder="Password:"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+
+              <button onClick={submitLogin} className="btn w-100" style={{ backgroundColor: '#008EDD', color: 'white' }}>
+                ENVIAR
+              </button>
+
+              <p className="text-center mt-3">
+                {message}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  )
+}
+
+export default Login
