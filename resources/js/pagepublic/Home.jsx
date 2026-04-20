@@ -149,7 +149,9 @@ const Home = () => {
               </div>
 
             </div>
-      
+          </SwiperSlide>
+        ))}
+    
 
       <div className="sucursales-hero py-5">
         <h2 className="text-center mb-4 fw-bold">
