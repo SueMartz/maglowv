@@ -131,6 +131,19 @@ const Home = () => {
         </div>
       </div>
 
+       <Swiper
+              modules={[Autoplay]}
+              spaceBetween={20}
+              slidesPerView={4}
+              loop={true}
+              autoplay={{ delay: 2500 }}
+              breakpoints={{
+                0: { slidesPerView: 1 },
+                600: { slidesPerView: 2 },
+                900: { slidesPerView: 3 },
+                1200: { slidesPerView: 4 }
+              }}
+            >
       {categoriasHome.map((categoria, index) => (
         <SwiperSlide key={categoria.id}>
           <div className="service-card">
@@ -140,10 +153,14 @@ const Home = () => {
             </span>
 
             <div className="card-icon">
+              <div className="icon-circle">
               <img
                 src={`/img/categoria/${categoria.urlfoto || 'foto.jpg'}`}
+                className="circle-img"
                 alt={categoria.nombre}
               />
+            </div>
+
             </div>
 
             <div className="card-title">
@@ -157,6 +174,7 @@ const Home = () => {
           </div>
         </SwiperSlide>
       ))}
+      </Swiper>
 
       
       <div className="sucursales-hero py-5">
