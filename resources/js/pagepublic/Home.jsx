@@ -131,18 +131,7 @@ const Home = () => {
         </div>
       </div>
 
-      <Swiper
-        modules={[Navigation]}
-        spaceBetween={20}
-        slidesPerView={3}
-        navigation={true}
-        loop={true}
-        breakpoints={{
-          0: { slidesPerView: 1 },
-          600: { slidesPerView: 2 },
-          900: { slidesPerView: 3 }
-        }}
-      >
+      
         {categoriasHome.map((categoria) => (
           <SwiperSlide key={categoria.id}>
             <div className="circle-card">
@@ -160,9 +149,7 @@ const Home = () => {
               </div>
 
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      
 
       <div className="sucursales-hero py-5">
         <h2 className="text-center mb-4 fw-bold">
