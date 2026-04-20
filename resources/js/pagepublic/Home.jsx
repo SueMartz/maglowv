@@ -113,8 +113,13 @@ const Home = () => {
                 </ul>
 
                 <div className="hero-buttons">
-                  <a href="#categorias" className="btn-gold">Ver servicios</a>
-                  <a href="#contacto" className="btn-outline">Agendar cita</a>
+                  <a href="/categorias" className="btn-gold">Ver servicios</a>
+                  <a
+                    href="https://wa.me/5215548488280?text=Hola%20quiero%20agendar%20una%20cita"
+                    className="btn-outline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >Agendar cita</a>
                 </div>
               </div>
             </div>
@@ -131,52 +136,52 @@ const Home = () => {
         </div>
       </div>
 
-       <Swiper
-              modules={[Autoplay]}
-              spaceBetween={20}
-              slidesPerView={4}
-              loop={true}
-              autoplay={{ delay: 2500 }}
-              breakpoints={{
-                0: { slidesPerView: 1 },
-                600: { slidesPerView: 2 },
-                900: { slidesPerView: 3 },
-                1200: { slidesPerView: 4 }
-              }}
-            >
-      {categoriasHome.map((categoria, index) => (
-        <SwiperSlide key={categoria.id}>
-          <div className="service-card">
+      <Swiper
+        modules={[Autoplay]}
+        spaceBetween={20}
+        slidesPerView={4}
+        loop={true}
+        autoplay={{ delay: 2500 }}
+        breakpoints={{
+          0: { slidesPerView: 1 },
+          600: { slidesPerView: 2 },
+          900: { slidesPerView: 3 },
+          1200: { slidesPerView: 4 }
+        }}
+      >
+        {categoriasHome.map((categoria, index) => (
+          <SwiperSlide key={categoria.id}>
+            <div className="service-card">
 
-            <span className="card-number">
-              {String(index + 1).padStart(2, '0')}
-            </span>
+              <span className="card-number">
+                {String(index + 1).padStart(2, '0')}
+              </span>
 
-            <div className="card-icon">
-              <div className="icon-circle">
-              <img
-                src={`/img/categoria/${categoria.urlfoto || 'foto.jpg'}`}
-                className="circle-img"
-                alt={categoria.nombre}
-              />
+              <div className="card-icon">
+                <div className="icon-circle">
+                  <img
+                    src={`/img/categoria/${categoria.urlfoto || 'foto.jpg'}`}
+                    className="circle-img"
+                    alt={categoria.nombre}
+                  />
+                </div>
+
+              </div>
+
+              <div className="card-title">
+                {categoria.nombre}
+              </div>
+
+              <div className="card-description">
+                {categoria.descripcion || 'Descripción de la categoría'}
+              </div>
+
             </div>
-
-            </div>
-
-            <div className="card-title">
-              {categoria.nombre}
-            </div>
-
-            <div className="card-description">
-              {categoria.descripcion || 'Descripción de la categoría'}
-            </div>
-
-          </div>
-        </SwiperSlide>
-      ))}
+          </SwiperSlide>
+        ))}
       </Swiper>
 
-      
+
       <div className="sucursales-hero py-5">
         <h2 className="text-center mb-4 fw-bold">
           Selecciona tu sucursal
