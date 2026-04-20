@@ -60,7 +60,7 @@ class FrontController extends Controller
     // Nuevo método para obtener categorías para home
     public function categoriasHome()
     {
-        $data = Categoria::select('nombre', 'slug', 'urlfoto')->get();
+        $data = Categoria::select('nombre', 'slug', 'urlfoto', 'descripcion')->get();
         return response()->json($data, 200);
     }
 
