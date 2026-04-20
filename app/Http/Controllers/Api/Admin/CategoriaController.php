@@ -53,22 +53,35 @@ class CategoriaController extends Controller
         $data->nombre = $request->nombre;
         $data->descripcion = $request->descripcion;
         $data->orden = $request->orden;
-        $data->slug = str::slug($request ->nombre);
+        $data->slug = Str::slug($request->nombre);
       //  $data->menu = $request->menu ? 1:0;
 
         
-        if($request->file){
-            $img = $request->file;
-            $folderPath = "/img/categoria";
-            $image_parts = explode(";base64,",$img);
-            $image_type_aux = explode("image/",$image_parts[0]);
-            $image_type = $image_type_aux[1];
-            $image_base64 = base64_decode($image_parts[1]);
+    if($request->file && str_contains($request->file, 'base64')){
 
-            $file = $folderPath . Str:: slug($request->nombre) . '.' . $image_type;
-            file_put_contents(public_path($file),$image_base64);
-            $data->urlfoto = Str::slug($request->nombre) . '.' .$image_type;
-        }
+    // 🔥 BORRAR IMAGEN ANTERIOR
+    if($data->urlfoto && file_exists(public_path('/img/categoria/'.$data->urlfoto))){
+        unlink(public_path('/img/categoria/'.$data->urlfoto));
+    }
+
+    $img = $request->file;
+    $folderPath = "/img/categoria/";
+
+    $image_parts = explode(";base64,", $img);
+    $image_type_aux = explode("image/", $image_parts[0]);
+    $image_type = $image_type_aux[1];
+
+    $image_base64 = base64_decode($image_parts[1]);
+
+    // 🔥 NOMBRE ÚNICO (AQUÍ VA TU CÓDIGO)
+    $filename = Str::slug($request->nombre) . '-' . time() . '.' . $image_type;
+
+    $file = $folderPath . $filename;
+
+    file_put_contents(public_path($file), $image_base64);
+
+    $data->urlfoto = $filename;
+}
        
         $data->save();
         return response()->json($data, 200);

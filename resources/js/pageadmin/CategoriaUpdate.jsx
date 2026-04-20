@@ -40,7 +40,7 @@ const CategoriaUpdate = () => {
 
     const submitUpdate = async (ev) => {
         ev.preventDefault()
-        await Config.getCategoriaUpdate({ nombre, descripcion, orden, urlfoto, menu }, id);
+        await Config.getCategoriaUpdate({ nombre, descripcion, orden, file, urlfoto, menu }, id);
         navigate('/admin/categoria')
 
     }
@@ -113,7 +113,14 @@ const CategoriaUpdate = () => {
                 <label className="font-weight-bold d-block mb-2">Imagen:</label>
                 <div className="d-flex align-items-center gap-3">
                   <img
-                    src={urlfoto ? `/img/categoria/${urlfoto}` : "/img/placeholder.jpg"}
+                    <img
+  src={urlfoto 
+    ? `/img/categoria/${urlfoto}?t=${new Date().getTime()}` 
+    : "/img/placeholder.jpg"}
+  className="img-thumbnail"
+  alt="Imagen de categoría"
+  style={{ width: 120, height: 90, objectFit: "cover" }}
+/>
                     className="img-thumbnail"
                     alt="Imagen de categoría"
                     style={{ width: 120, height: 90, objectFit: "cover" }}
