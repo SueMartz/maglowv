@@ -131,28 +131,34 @@ const Home = () => {
         </div>
       </div>
 
-      
-        {categoriasHome.map((categoria) => (
-          <SwiperSlide key={categoria.id}>
-            <div className="circle-card">
+      {categoriasHome.map((categoria, index) => (
+        <SwiperSlide key={categoria.id}>
+          <div className="service-card">
 
-              <Link to={`/categorias/${categoria.slug}`} className="circle-link">
-                <img
-                  src={`/img/categoria/${categoria.urlfoto || 'foto.jpg'}`}
-                  className="circle-img"
-                  alt={categoria.nombre}
-                />
-              </Link>
+            <span className="card-number">
+              {String(index + 1).padStart(2, '0')}
+            </span>
 
-              <div className="circle-title">
-                {categoria.nombre}
-              </div>
-
+            <div className="card-icon">
+              <img
+                src={`/img/categoria/${categoria.urlfoto || 'foto.jpg'}`}
+                alt={categoria.nombre}
+              />
             </div>
-          </SwiperSlide>
-        ))}
-    
 
+            <div className="card-title">
+              {categoria.nombre}
+            </div>
+
+            <div className="card-description">
+              {categoria.descripcion || 'Descripción de la categoría'}
+            </div>
+
+          </div>
+        </SwiperSlide>
+      ))}
+
+      
       <div className="sucursales-hero py-5">
         <h2 className="text-center mb-4 fw-bold">
           Selecciona tu sucursal
