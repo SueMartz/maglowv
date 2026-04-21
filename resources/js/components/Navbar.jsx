@@ -86,7 +86,7 @@ const Navbar = () => {
       </div>
     </nav><div className="promo-bar">
         <div className="promo-track">
-          <span>🏁 Los rines que TODOS quieren… están aquí 👀 🏁</span>
+          <span>🏁 Las reparaciones de tus rines que TODOS quieren… están aquí 👀 🏁</span>
           
         </div>
       </div></>

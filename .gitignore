@@ -16,6 +16,7 @@ Thumbs.db
 
 # PHP / Laravel
 /vendor
+/paginaweb/vendor
 /storage/*.key
 /storage/pail
 .phpunit.result.cache
