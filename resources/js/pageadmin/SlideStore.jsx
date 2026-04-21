@@ -10,6 +10,7 @@ const SlideStore = () => {
   const [urlfoto, setUrlfoto] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
+  const whatsappUrl = `https://wa.me/5215548488280?text=Hola%20necesito%20información`;
 
   const handleInputChange = (e) => {
     const file = e.target.files[0];
@@ -70,7 +71,7 @@ const SlideStore = () => {
                   <input
                     type="url"
                     className="form-control"
-                    value={link}
+                    value={whatsappUrl}
                     onChange={(e) => setLink(e.target.value)}
                   />
                 </div>

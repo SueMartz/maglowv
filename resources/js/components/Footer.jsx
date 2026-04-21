@@ -40,7 +40,7 @@ const Footer = () => {
             <div className="d-flex gap-3 fs-5">
 
               <a
-                href="https://www.facebook.com/p/Pasteler%C3%ADa-Alan-100063737013372/?locale=es_LA"
+                href="https://www.facebook.com/share/1LHyDCHDrT/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social"
@@ -48,11 +48,11 @@ const Footer = () => {
                 <i className="fab fa-facebook"></i>
               </a>
 
-              <a href="#" className="footer-social">
+              <a href="https://www.instagram.com/jeax_especiality/" className="footer-social">
                 <i className="fab fa-instagram"></i>
               </a>
 
-              <a href="#" className="footer-social">
+              <a href="https://www.tiktok.com/@jeax29" className="footer-social">
                 <i className="fab fa-tiktok"></i>
               </a>
 

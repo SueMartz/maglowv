@@ -617,8 +617,8 @@
 
 .card-slide {
   width: 300px;
-  height: 300px;
-  border-radius: 50%;
+  height: auto;
+  border-radius: 0;
   overflow: hidden;
   position: relative;
 }
@@ -626,7 +626,7 @@
 .card-slide img {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 18px;
   display: block;
   margin: 0 auto;
