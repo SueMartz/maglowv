@@ -76,9 +76,8 @@
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(232, 62, 140, 0.3);
 }
-
 .rating-stars {
-  font-size: 30px;
+  font-size: 34px;
   cursor: pointer;
   user-select: none;
 }
@@ -86,6 +85,7 @@
 .star {
   color: #ddd;
   transition: all 0.2s ease;
+  margin-right: 6px;
 }
 
 .star.active {
@@ -93,7 +93,7 @@
 }
 
 .star:hover {
-  transform: scale(1.25);
+  transform: scale(1.3);
   color: #ffb400;
 }
 
@@ -106,7 +106,7 @@
 }
 
 .btn-rosa {
-  background: linear-gradient(135deg, #e83e8c, #ff6aa2);
+  background: linear-gradient(135deg, #C9A84C, #C9A84C);
   color: white;
   transition: all 0.3s ease;
 }
@@ -175,10 +175,10 @@
 
 /* Descripción */
 .card-description {
-  font-size: 12px;
+  font-size: 14px;
   color: #BFBFBF;
   line-height: 1.5;
-  max-width: 180px;
+  max-width: 400px;
   margin: 0 auto;
 }
 

@@ -184,7 +184,7 @@ const Home = () => {
 
       <div className="sucursales-hero py-5">
         <h2 className="text-center mb-4 fw-bold">
-          Selecciona tu sucursal
+          Visitanos
         </h2>
 
         <div className="row">

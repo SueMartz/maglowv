@@ -59,19 +59,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* ENLACES */}
-          <div className="col-md-4">
-            <h5 className="fw-bold">Enlaces rápidos</h5>
-
-            <ul className="footer-links">
-              <li><Link to="/nosotros">Sobre nosotros</Link></li>
-              <li><Link to="/locations">Contacto</Link></li>
-              <li><Link to="/preguntas">Preguntas frecuentes</Link></li>
-              <li><Link to="/terminos">Condiciones de servicio</Link></li>
-              <li><Link to="/reembolso">Política de reembolso</Link></li>
-              <li><Link to="/privacidad">Política de privacidad</Link></li>
-            </ul>
-          </div>
+         
 
         </div>
       </div>

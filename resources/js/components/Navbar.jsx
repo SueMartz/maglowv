@@ -86,7 +86,7 @@ const Navbar = () => {
       </div>
     </nav><div className="promo-bar">
         <div className="promo-track">
-          <span>🏁 Las reparaciones de tus rines que TODOS quieren… están aquí 👀 🏁</span>
+          <span>🏁 Si buscas elegancia, estilo y seguridad… elige JEAX. Hacemos que la perfección ruede.”👀 🏁</span>
           
         </div>
       </div></>
