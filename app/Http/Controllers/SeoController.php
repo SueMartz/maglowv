@@ -53,6 +53,15 @@ class SeoController extends Controller
         ]);
     }
 
+    public function sitemap()
+{
+    $categorias = Categoria::all();
+    $posts = Post::all();
+
+    return response()->view('sitemap', compact('categorias', 'posts'))
+        ->header('Content-Type', 'text/xml');
+}
+
     public function post($slug)
     {
         $post = Post::where('slug', $slug)->first();
