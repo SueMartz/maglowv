@@ -117,6 +117,59 @@ class SeoController extends Controller
     return response($xml, 200)->header('Content-Type', 'application/xml');
 }
 
+public function diamantado()
+{
+    $content = '
+        <h2>¿Qué es el diamantado de rines?</h2>
+        <p>El diamantado de rines es un proceso de precisión que restaura el acabado original del rin mediante corte controlado en torno CNC. Este procedimiento elimina rayones, desgaste y daños superficiales, devolviendo el brillo metálico característico.</p>
+
+        <h2>¿Cuándo necesitas diamantado?</h2>
+        <ul>
+            <li>Rines rayados o con desgaste</li>
+            <li>Pérdida de brillo original</li>
+            <li>Daños por baches o banquetas</li>
+            <li>Rines opacos o deteriorados</li>
+        </ul>
+
+        <h2>Proceso profesional en JEAX</h2>
+        <p>En JEAX realizamos un proceso completo:</p>
+        <ul>
+            <li>Inspección del rin</li>
+            <li>Corrección de imperfecciones</li>
+            <li>Maquinado diamantado</li>
+            <li>Protección con sellado especializado</li>
+        </ul>
+
+        <h2>Ventajas del diamantado</h2>
+        <ul>
+            <li>Recupera apariencia original</li>
+            <li>Mejora estética del vehículo</li>
+            <li>Aumenta valor del auto</li>
+            <li>Acabado profesional de alta precisión</li>
+        </ul>
+
+        <h2>Servicios relacionados</h2>
+        <p>
+            <a href="/reparacion-rines-aluminio">Reparación de rines</a> |
+            <a href="/enderezado-rines">Enderezado de rines</a>
+        </p>
+
+        <h2>¿Dónde estamos?</h2>
+        <p>Estamos ubicados en Ciudad de México y atendemos zonas como Ecatepec, Venustiano Carranza y alrededores.</p>
+
+        <h2>Contáctanos</h2>
+        <p>
+            📍 Av Oceanía 291, CDMX<br>
+            📞 55 48 48 82 80<br>
+            💬 Atención por WhatsApp
+        </p>
+    ';
+
+    return $this->renderApp([
+        'title' => 'Diamantado de Rines en CDMX | Reparación Profesional | JEAX',
+        'description' => 'Servicio de diamantado de rines en CDMX. Recupera el acabado original de tus rines con tecnología profesional. Atención rápida y garantizada.'
+    ], $content);
+}
     public function post($slug)
     {
         $post = Post::where('slug', $slug)->first();
