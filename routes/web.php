@@ -12,6 +12,7 @@ Route::get('/pagina/{slug}', [SeoController::class, 'pagina']);
 // routes/web.php
 Route::get('/sitemap.xml', [SeoController::class, 'sitemap']);
 Route::get('/diamantado-rines-cdmx', [SeoController::class, 'diamantado']);
+Route::get('/enderezado-rines', [SeoController::class, 'enderezado']);
 
 // Catch-all para todo lo demás (admin, cliente, login, etc.)
 Route::get('/{any}', [SeoController::class, 'app'])->where('any', '.*');
