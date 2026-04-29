@@ -17,7 +17,7 @@
 <body>
   
     <!-- CONTENIDO SEO PARA GOOGLE -->
-    <div style="padding:20px; max-width:900px; margin:auto;">
+    <div style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">
         <h1>{{ $seo['title'] ?? 'JEAX Store' }}</h1>
         <p>{{ $seo['description'] ?? '' }}</p>
 
