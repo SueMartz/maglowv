@@ -150,8 +150,8 @@ public function diamantado()
 
         <h2>Servicios relacionados</h2>
         <p>
-            <a href="/reparacion-rines-aluminio">Reparación de rines</a> |
-            <a href="/enderezado-rines">Enderezado de rines</a>
+            <a href="https://www.jeax.store/categorias">Reparación de rines</a> |
+            <a href="https://www.jeax.store/enderezado-rines">Enderezado de rines</a>
         </p>
 
         <h2>¿Dónde estamos?</h2>
