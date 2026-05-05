@@ -14,5 +14,10 @@ Route::get('/sitemap.xml', [SeoController::class, 'sitemap']);
 Route::get('/diamantado-rines-cdmx', [SeoController::class, 'diamantado']);
 Route::get('/enderezado-rines', [SeoController::class, 'enderezado']);
 
+Route::get('/nosotros', [SeoController::class, 'nosotros']);
+Route::get('/preguntas', [SeoController::class, 'preguntas']);
+Route::get('/terminos', [SeoController::class, 'terminos']);
+Route::get('/contacto', [SeoController::class, 'contacto']);
+
 // Catch-all para todo lo demás (admin, cliente, login, etc.)
 Route::get('/{any}', [SeoController::class, 'app'])->where('any', '.*');
