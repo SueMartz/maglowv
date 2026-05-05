@@ -129,7 +129,29 @@
     margin-top: 20px;
   }
 </style>
-  
+
+
+@php
+$schema = [
+    "@context" => "https://schema.org",
+    "@type" => "AutoRepair",
+    "name" => "JEAX",
+    "url" => $seo['url'] ?? url()->current(),
+    "areaServed" => "Ciudad de México"
+];
+@endphp
+
+<script type="application/ld+json">
+{!! json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
+</script>
+
+ <!-- FAQ DINÁMICO -->
+  @if(isset($seo['faq']))
+  <script type="application/ld+json">
+  {!! json_encode($seo['faq'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
+  </script>
+  @endif
+
 </head>
 
 <body>
@@ -147,7 +169,7 @@
       @endisset
   </section>
   <!-- APP REACT -->
-  @if($useReact ?? true)
+  @if(!isset($useReact) || $useReact)
     <div id="root"></div>
 @endif
 
