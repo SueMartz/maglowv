@@ -101,7 +101,7 @@ class SeoController extends Controller
     $xml = '<?xml version="1.0" encoding="UTF-8"?>';
     $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 
-    // HOME
+    // 🏠 HOME
     $xml .= '<url>';
     $xml .= '<loc>' . url('/') . '</loc>';
     $xml .= '<lastmod>' . now()->toAtomString() . '</lastmod>';
@@ -109,11 +109,18 @@ class SeoController extends Controller
     $xml .= '<changefreq>weekly</changefreq>';
     $xml .= '</url>';
 
-    // PÁGINAS SEO (IMPORTANTES)
+    // 🔥 PÁGINAS SEO (VENTA / POSICIONAMIENTO)
     $paginasSeo = [
         '/diamantado-rines-cdmx',
         '/reparacion-rines-aluminio',
         '/enderezado-rines',
+
+        // 🔥 SEO LOCAL (MUY IMPORTANTES)
+        '/enderezado-rines-ecatepec',
+        '/diamantado-rines-ecatepec',
+        '/reparacion-rines-cerca-de-mi',
+        '/diamantado-rines-cerca-de-mi',
+        '/enderezado-rines-cdmx',
     ];
 
     foreach ($paginasSeo as $page) {
@@ -121,10 +128,28 @@ class SeoController extends Controller
         $xml .= '<loc>' . url($page) . '</loc>';
         $xml .= '<lastmod>' . now()->toAtomString() . '</lastmod>';
         $xml .= '<priority>0.9</priority>';
+        $xml .= '<changefreq>weekly</changefreq>';
         $xml .= '</url>';
     }
 
-    // CATEGORÍAS
+    // 🧾 PÁGINAS INSTITUCIONALES (FOOTER)
+    $paginasFooter = [
+        '/nosotros',
+        '/contacto',
+        '/preguntas',
+        '/terminos',
+    ];
+
+    foreach ($paginasFooter as $page) {
+        $xml .= '<url>';
+        $xml .= '<loc>' . url($page) . '</loc>';
+        $xml .= '<lastmod>' . now()->toAtomString() . '</lastmod>';
+        $xml .= '<priority>0.4</priority>';
+        $xml .= '<changefreq>monthly</changefreq>';
+        $xml .= '</url>';
+    }
+
+    // 📂 CATEGORÍAS
     foreach ($categorias as $cat) {
         $xml .= '<url>';
         $xml .= '<loc>' . url('/categorias/' . $cat->slug) . '</loc>';
@@ -134,7 +159,7 @@ class SeoController extends Controller
         $xml .= '</url>';
     }
 
-    // POSTS (BLOG)
+    // 📝 POSTS (BLOG)
     foreach ($posts as $post) {
         $xml .= '<url>';
         $xml .= '<loc>' . url('/blog/post/' . $post->slug) . '</loc>';
@@ -146,7 +171,8 @@ class SeoController extends Controller
 
     $xml .= '</urlset>';
 
-    return response($xml, 200)->header('Content-Type', 'application/xml');
+    return response($xml, 200)
+        ->header('Content-Type', 'application/xml');
 }
 
 public function contacto()
