@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="col-md-4 text-center text-md-start mb-4">
             <img
               src="/img/logo.png"
-              alt="Jeax"
+              alt="maglowv"
               style={{ width: "100px" }}
             />
           </div>
@@ -37,7 +37,7 @@ const Footer = () => {
             <div className="d-flex gap-3 fs-5">
 
               <a
-                href="https://www.facebook.com/share/1LHyDCHDrT/"
+                href="https://www.facebook.com/maglowv/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social"
@@ -45,11 +45,11 @@ const Footer = () => {
                 <i className="fab fa-facebook"></i>
               </a>
 
-              <a href="https://www.instagram.com/jeax_especiality/" className="footer-social">
+              <a href="https://www.instagram.com/maglowv/" className="footer-social">
                 <i className="fab fa-instagram"></i>
               </a>
 
-              <a href="https://www.tiktok.com/@jeax29" className="footer-social">
+              <a href="https://www.tiktok.com/@maglowv" className="footer-social">
                 <i className="fab fa-tiktok"></i>
               </a>
 
@@ -72,7 +72,7 @@ const Footer = () => {
       </div>
 
       <div className="text-center pb-3 small">
-        <li><a href="/">© 2026 Jeax</a></li>
+        <li><a href="/">© 2026 maglowv</a></li>
       </div>
     </footer>
   );

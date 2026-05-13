@@ -5,7 +5,7 @@
 
     RewriteEngine On
     RewriteCond %{HTTPS} off
-    RewriteRule ^(.*)$ https://jeax.store/$1 [L,R=301]
+    RewriteRule ^(.*)$ https://maglowv.com/$1 [L,R=301]
    
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .

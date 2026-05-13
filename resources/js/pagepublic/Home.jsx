@@ -207,7 +207,7 @@ const Home = () => {
                 {/* Imagen */}
                 <img
                   src={`/img/post/${p.image}`}
-                  className="jeax-blog-img"
+                  className="maglowv-blog-img"
                   alt={p.title || 'Imagen del post'}
                 />
 
@@ -251,7 +251,7 @@ const Home = () => {
               <div className="react-card blog-card position-relative overflow-hidden h-100">
                 <img
                   src={`/img/pagina/${pg.image}`}
-                  className="jeax-blog-img"
+                  className="maglowv-blog-img"
                   alt={pg.title || 'Imagen de la página'}
                 />
                 {/* Overlay oscuro */}
