@@ -17,7 +17,7 @@ const Footer = () => {
             <img
               src="/img/logo.png"
               alt="maglowv"
-              style={{ width: "100px" }}
+              style={{ width: "300px" }}
             />
           </div>
 
@@ -31,7 +31,7 @@ const Footer = () => {
 
 
             <p className="mb-3">
-              Teléfono: 55 48 48 82 80
+              Teléfono: 55 39 41 86 12
             </p>
 
             <div className="d-flex gap-3 fs-5">
@@ -45,13 +45,11 @@ const Footer = () => {
                 <i className="fab fa-facebook"></i>
               </a>
 
-              <a href="https://www.instagram.com/maglowv/" className="footer-social">
+              <a href="https://www.instagram.com/maglow_v" className="footer-social">
                 <i className="fab fa-instagram"></i>
               </a>
 
-              <a href="https://www.tiktok.com/@maglowv" className="footer-social">
-                <i className="fab fa-tiktok"></i>
-              </a>
+             
 
             </div>
           </div>

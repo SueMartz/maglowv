@@ -30,31 +30,37 @@ class SeoController extends Controller
     */
 
     public function home()
-    {
-        $content = '
-        <main>
-            <article>
+{
+    $content = <<<HTML
+    <main>
+        <section class="hero">
+            
+            <span class="badge">Arte · Uñas · Bisutería</span>
 
-                <h1>MaGlowV Studio</h1>
+            <h1>
+                Creatividad hecha<br>
+                <span class="highlight">para ti</span>
+            </h1>
 
-                <section>
-                    <h2>Uñas, arte y bisutería artesanal</h2>
+            <p class="description">
+                Cuadros originales, diseños de uñas únicos y bisutería de calidad.
+                Todo creado con dedicación por una sola artista.
+            </p>
 
-                    <p>
-                        Diseños únicos de uñas, cuadros decorativos y accesorios
-                        artesanales creados con creatividad y estilo.
-                    </p>
-                </section>
+            <div class="actions">
+                <a href="/coleccion" class="btn primary">Ver colección ↗</a>
+                <a href="/artista" class="btn secondary">Sobre la artista</a>
+            </div>
 
-            </article>
-        </main>
-        ';
+        </section>
+    </main>
+HTML;
 
-        return $this->renderApp([
-            'title'       => 'MaGlowV Studio | Uñas, Arte y Bisutería',
-            'description' => 'Diseños de uñas, nail art, cuadros decorativos y bisutería artesanal personalizada.'
-        ], $content);
-    }
+    return $this->renderApp([
+        'title'       => 'MaGlowV Studio | Uñas, Arte y Bisutería',
+        'description' => 'Diseños de uñas, nail art, cuadros decorativos y bisutería personalizada.'
+    ], $content);
+}
 
     /*
     |--------------------------------------------------------------------------
@@ -66,7 +72,7 @@ class SeoController extends Controller
     {
         return $this->renderApp([
             'title'       => 'Servicios | MaGlowV Studio',
-            'description' => 'Conoce nuestros servicios de uñas, nail art, arte decorativo y bisutería artesanal.'
+            'description' => 'Conoce nuestros servicios de uñas, nail art, arte decorativo y bisutería diseños originales.'
         ]);
     }
 
@@ -97,7 +103,7 @@ class SeoController extends Controller
                     <ul>
                         <li>Diseños personalizados</li>
                         <li>Atención detallada</li>
-                        <li>Trabajo artesanal</li>
+                        <li>Trabajo profesional</li>
                         <li>Creatividad y estilo único</li>
                     </ul>
                 </section>
@@ -122,7 +128,7 @@ class SeoController extends Controller
     {
         return $this->renderApp([
             'title'       => 'Blog | MaGlowV Studio',
-            'description' => 'Ideas, tendencias y consejos sobre uñas, arte y bisutería artesanal.'
+            'description' => 'Ideas, tendencias y consejos sobre uñas, arte y bisutería fina (diseños originales).'
         ]);
     }
 
@@ -197,7 +203,7 @@ class SeoController extends Controller
 
         return $this->renderApp([
             'title'       => 'Contacto | MaGlowV Studio',
-            'description' => 'Agenda tu cita para uñas, nail art y accesorios artesanales.'
+            'description' => 'Agenda tu cita para uñas, nail art y accesorios con diseños originales.'
         ], $content, false);
     }
 
@@ -235,7 +241,7 @@ class SeoController extends Controller
                     <h2>¿También venden bisutería?</h2>
 
                     <p>
-                        Sí, contamos con accesorios y piezas artesanales.
+                        Sí, contamos con accesorios y piezas diseñadas con personalidad.
                     </p>
                 </section>
 

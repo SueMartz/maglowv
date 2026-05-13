@@ -1,46 +1,70 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 
 const WhatsAppButton = () => {
-  const phoneNumber = '5215539418612'; // ← Tu número
-  const message = encodeURIComponent('¡Hola! Necesito Información,');
+  const [hover, setHover] = useState(false);
+
+  const phoneNumber = '5215539418612';
+  const message = encodeURIComponent('¡Hola! Necesito información');
 
   return (
-    <a
-      href={`https://wa.me/${phoneNumber}?text=${message}`}
-      className="whatsapp-button d-flex align-items-center justify-content-center"
-      target="_blank"
-      rel="noopener noreferrer"
+    <div
       style={{
-        backgroundColor: '#25D366',
-        color: 'white',
-        borderRadius: '50px',
-        padding: '10px 18px',
-        fontSize: '16px',
-        textDecoration: 'none',
-        boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+        position: 'fixed',
+        bottom: '20px',
+        right: '20px',
         zIndex: 9999,
-        fontFamily: 'Poppins, sans-serif',
-        fontSize: '16px',
-        fontWeight: '100',
-        transition: 'all 0.3s ease',
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = '#1EBE57';
-        e.currentTarget.style.transform = 'scale(1.05)';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = '#25D366';
-        e.currentTarget.style.transform = 'scale(1)';
       }}
     >
-      <span style={{ marginRight: '10px' }}></span>
-      <img
-        src="/img/whatsapp--v1.png" // ← Cambia este archivo si quieres otro logo
-        alt="WhatsApp"
-        style={{ width: '32px', height: '32px' }}
-      />
-    </a>
+      {/* Tooltip moderno */}
+      {hover && (
+        <div
+          style={{
+            position: 'absolute',
+            right: '75px',
+            bottom: '18px',
+            backgroundColor: '#fff',
+            color: '#111',
+            padding: '8px 12px',
+            borderRadius: '20px',
+            fontSize: '13px',
+            whiteSpace: 'nowrap',
+            boxShadow: '0 6px 18px rgba(0,0,0,0.25)',
+            opacity: hover ? 1 : 0,
+            transform: 'translateX(0)',
+            transition: 'all 0.2s ease',
+          }}
+        >
+          Cotiza y agenda
+        </div>
+      )}
+
+      {/* Botón */}
+      <a
+        href={`https://wa.me/${phoneNumber}?text=${message}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        style={{
+          width: '65px',
+          height: '65px',
+          backgroundColor: '#25D366',
+          borderRadius: '50%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 8px 20px rgb(237, 231, 231)',
+          transition: 'all 0.3s ease',
+          transform: hover ? 'scale(1.12)' : 'scale(1)',
+        }}
+      >
+        <img
+          src="/img/whatsapp--v1.png"
+          alt="WhatsApp"
+          style={{ width: '32px', height: '32px' }}
+        />
+      </a>
+    </div>
   );
 };
 

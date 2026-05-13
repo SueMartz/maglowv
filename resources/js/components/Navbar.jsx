@@ -47,52 +47,37 @@ const Navbar = () => {
   };
 
   return (
-    <><nav className="navbar navbar-expand-lg shadow-sm py-5 react-navbar">
+    <><nav className="navbar react-navbar">
+  <div className="container-fluid nav-grid">
 
-      <div className="container-fluid ">
+    {/* IZQUIERDA */}
+    <div className="nav-left d-none d-lg-flex">
+      <Link to="/">Inicio</Link>
+      <Link to="/cuadros">Cuadros</Link>
+      <Link to="/unas">Uñas</Link>
+      <Link to="/bisuteria">Bisutería</Link>
+      <Link to="/me">Sobre mí</Link>
+      <Link to="/blog">Blog</Link>
+      <Link to="/categorias">Categorías</Link>
+    </div>
 
+    {/* CENTRO LOGO */}
+    <div className="nav-center">
+      <Link to="/">
+        <img src="/img/logo.png" alt="logo" />
+      </Link>
+    </div>
 
-        {/* Nav izquierda */}
-        <div className="d-none d-lg-flex gap-3">
-          <Link className="react-nav-link text-rosa" to="/">Inicio</Link>
-          <Link className="react-nav-link text-rosa" to="/cuadros">Cuadros</Link>
-          <Link className="react-nav-link text-rosa" to="/unas">Uñas</Link>
-          <Link className="react-nav-link text-rosa" to="/bisuteria">bisuteria</Link>
-          <Link className="react-nav-link text-rosa" to="/me">Sobre mí</Link>
-          <Link className="react-nav-link text-rosa" to="/blog">Blog</Link>
-          <Link className="react-nav-link text-rosa" to="/categorias">Categorías</Link>
-        </div>
+    {/* DERECHA (LOGIN) */}
+    <div className="nav-right">
+      {renderLinks()}
+    </div>
 
-        {/* Logo centrado */}
-        <Link className="navbar-brand position-absolute start-50 translate-middle-x"
-          style={{ top: '-15px' }}>
-          <img src={`/img/logo.png`} alt="Logo DirEmp" style={{ maxHeight: '350px' }} />
-        </Link>
-
-       
-
-        {/* Enlaces móviles + login/logout */}
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto gap-3 mt-3 mt-lg-0">
-            <li className="nav-item d-lg-none">
-              <Link className="nav-link text-rosa" to="/">Inicio</Link>
-            </li>
-            <li className="nav-item d-lg-none">
-              <Link className="nav-link text-rosa" to="/categorias">Categorías</Link>
-            </li>
-            <li className="nav-item d-lg-none">
-              <Link className="nav-link text-rosa" to="/blog">Blog</Link>
-            </li>
-            {renderLinks()}
-          </ul>
-        </div>
-
-      </div>
-    </nav><div className="promo-bar">
+  </div>
+</nav><div className="promo-bar">
         <div className="promo-track">
-          <span>💅✨ Diseños que enamoran, cuadros con personalidad y bisutería que ilumina tu estilo.
-MaGlowV 💎 haciendo que cada detalle brille contigo.</span>
-          
+          <span>💅✨ Diseños que enamoran, cuadros con personalidad y bisutería que ilumina tu estilo. MaGlowV 💎 haciendo que cada detalle brille contigo.</span>
+
         </div>
       </div></>
   );

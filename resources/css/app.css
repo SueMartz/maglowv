@@ -13,14 +13,14 @@
 }
 
 .btn-rosa {
-  background-color: #FBC02D;
+  background-color: #F4D35E;
   color: white;
   border: none;
   transition: background-color 0.3s ease;
 }
 
 .btn-rosa:hover {
-  background-color: #FBC02D;
+  background-color: #F4D35E;
   color: #fff;
 }
 
@@ -40,24 +40,24 @@ body{
 }
 
 .text-rosa {
-  color: #FBC02D; /* Cambia este valor por el tono exacto de rosa de tu logo */
+  color: #F4D35E; /* Cambia este valor por el tono exacto de rosa de tu logo */
 }
 
 .text-rosa:hover {
-  color: #FBC02D; /* Un tono más oscuro para el hover */
+  color: #F4D35E; /* Un tono más oscuro para el hover */
   text-decoration: none;
 }
 .text-center{
-  color: #FBC02D; /* Un tono más oscuro para el hover */
+  color: #F4D35E; /* Un tono más oscuro para el hover */
   text-decoration: none;
 }
 .mb-4{
-  color: #FBC02D; /* Un tono más oscuro para el hover */
+  color: #F4D35E; /* Un tono más oscuro para el hover */
   text-decoration: none;
 }
 
 .bg-rosa-pastel {
-  background-color: #FBC02D !important;
+  background-color: #F4D35E !important;
 }
 
 /* Estilo para imágenes del carrusel */

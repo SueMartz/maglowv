@@ -40,8 +40,8 @@ const Home = () => {
   }, []);
 
   const getCatalogo = async () => {
-  const response = await Config.getCategoriasConProductos();
-  setCatalogo(response.data);
+    const response = await Config.getCategoriasConProductos();
+    setCatalogo(response.data);
   };
 
 
@@ -101,108 +101,164 @@ const Home = () => {
     <div className="home-container">
       <div className="maglowv-home">
 
-  {catalogo.map((categoria, index) => (
+        {catalogo.map((categoria, index) => (
 
-    <section
-      className={`mag-section ${index % 2 === 0 ? 'bg-light-custom' : 'bg-beige'}`}
-      key={categoria.id}
-    >
+          <section
+            className={`mag-section ${index % 2 === 0 ? 'bg-light-custom' : 'bg-beige'}`}
+            key={categoria.id}
+          >
 
-      <div className="container">
+            <div className="container">
 
-        {/* HEADER */}
-        <div className="section-header">
+              {/* HEADER */}
+              <div className="section-header">
 
-          <span className="section-badge">
-            {categoria.nombre}
-          </span>
+                <span className="section-badge">
+                  {categoria.nombre}
+                </span>
 
-          <h2>
-            {categoria.nombre}
-          </h2>
+                <h2>
+                  {categoria.nombre}
+                </h2>
 
-          <p>
-            {categoria.descripcion}
-          </p>
+                <p>
+                  {categoria.descripcion}
+                </p>
 
-        </div>
+              </div>
 
-        {/* PRODUCTOS */}
-        <div className="row g-4">
+              {/* PRODUCTOS */}
+              <div className="row g-4">
 
-          {categoria.productos?.map((producto) => (
+                {categoria.productos?.map((producto) => (
 
-            <div className="col-md-4" key={producto.id}>
+                  <div className="col-md-4" key={producto.id}>
 
-              <div className="mag-card h-100">
+                    <div className="mag-card h-100">
 
-                <div className="mag-card-image">
+                      <div className="mag-card-image">
 
-                  <img
-                    src={`/img/producto/${producto.image || 'foto.jpg'}`}
-                    alt={producto.name}
-                  />
+                        <img
+                          src={`/img/producto/${producto.image || 'foto.jpg'}`}
+                          alt={producto.name}
+                        />
 
-                </div>
+                      </div>
 
-                <div className="mag-card-body">
+                      <div className="mag-card-body">
 
-                  <span className="product-tag">
-                    {categoria.nombre}
-                  </span>
+                        <span className="product-tag">
+                          {categoria.nombre}
+                        </span>
 
-                  <h4>
-                    {producto.name}
-                  </h4>
+                        <h4>
+                          {producto.name}
+                        </h4>
 
-                  <div className="product-price">
-                    ${producto.precio} MXN
+                        <div className="product-price">
+                          ${producto.precio} MXN
+                        </div>
+
+                        <p>
+                          {producto.descripcion}
+                        </p>
+
+                        <button
+                          className="btn-maglowv"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setModal(true);
+                            setDatamodal(producto);
+                          }}
+                        >
+                          Ver más
+                        </button>
+
+                      </div>
+
+                    </div>
+
                   </div>
 
-                  <p>
-                    {producto.descripcion}
-                  </p>
-
-                  <button
-                    className="btn-maglowv"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setModal(true);
-                      setDatamodal(producto);
-                    }}
-                  >
-                    Ver más
-                  </button>
-
-                </div>
+                ))}
 
               </div>
 
             </div>
 
-          ))}
+          </section>
 
-        </div>
+        ))}
 
       </div>
 
-    </section>
 
-  ))}
+      {/*Soy la artista*/}
 
-</div>
+      {/* ABOUT SECTION */}
+      <section className="mag-about-section py-5">
+        <div className="container">
+          <div className="row align-items-center g-5">
 
-      
+            {/* Imagen / Avatar */}
+            <div className="col-md-4 text-center">
+              <div className="about-avatar">
+                <div className="avatar-box">
+                  <span className="avatar-letter">M</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Texto */}
+            <div className="col-md-8">
+
+              <div className="about-badge mb-2"></div>
+
+              <h2 className="about-title">
+                Hola, soy la artista detrás de maglowv
+              </h2>
+
+              <p className="about-text">
+                Soy diseñadora e ilustradora apasionada por crear cosas bellas con mis manos.
+                Cada cuadro que pinto, cada diseño de uñas que trazo y cada accesorio que selecciono
+                lleva mi sello personal. Mi misión es acercar el arte a tu vida cotidiana.
+              </p>
+
+              {/* Tags */}
+              <div className="about-tags">
+                <span>Ilustración</span>
+                <span>Nail art</span>
+                <span>Diseño original</span>
+                <span>Arte en acrílico</span>
+                <span>Encargos personalizados</span>
+              </div>
+
+              {/* CTA */}
+              <div className="mt-4">
+                <a href="/contacto" className="about-btn">
+                  Hacer un encargo ↗
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/*Termina el soy la artista*/}
 
 
-
-      <div className="pt-5 react-blog-section">
-        <h2 className="text-center mb-4">📰 Blog y Contenidos</h2>
+      <div className="mag-section blog-background">
+        <div className="section-header text-center">
+          <span className="section-badge">BLOG</span>
+          <h2>📰 Blog y Contenidos</h2>
+          <p>Transformaciones, historias y resultados reales</p>
+        </div>
 
         <div className="row g-4">
           {posts.map((p) => (
             <div className="col-md-4" key={`post-${p.id}`}>
-              <div className="react-card blog-card position-relative overflow-hidden h-100">
+              <div className="mag-card blog-card position-relative h-100 overflow-hidde">
 
                 {/* Imagen */}
                 <img
@@ -215,7 +271,7 @@ const Home = () => {
                 <div className="blog-overlay"></div>
 
                 {/* Contenido */}
-                <div className="card-body blog-content">
+                <div className="mag-card-body">
 
                   {/* Badge */}
                   <span className="badge bg-warning text-dark mb-2">
@@ -248,7 +304,7 @@ const Home = () => {
 
           {paginas.map((pg) => (
             <div className="col-md-4" key={`pagina-${pg.id}`}>
-              <div className="react-card blog-card position-relative overflow-hidden h-100">
+              <div className="mag-card blog-card position-relative h-100 overflow-hidde">
                 <img
                   src={`/img/pagina/${pg.image}`}
                   className="maglowv-blog-img"
@@ -258,7 +314,7 @@ const Home = () => {
                 <div className="blog-overlay"></div>
 
                 {/* Contenido */}
-                <div className="card-body blog-content">
+                <div className="mag-card-body">
                   {/* Badge */}
                   <span className="badge bg-warning text-dark mb-2">
                     🔥 Transformación
@@ -356,6 +412,8 @@ const Home = () => {
             >
               ✕
             </button>
+
+
 
             <ComentarioForm />
           </div>

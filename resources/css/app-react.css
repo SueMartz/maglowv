@@ -238,7 +238,7 @@
 }
 
 .btn-rosa {
-  background: linear-gradient(135deg, #C9A84C, #C9A84C);
+  background: linear-gradient(135deg, #F4D35E, #F4D35E);
   color: white;
   transition: all 0.3s ease;
 }
@@ -251,7 +251,7 @@
 .service-card {
   background: #0D0D0D;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  border-top: 2px solid #C9A84C;
+  border-top: 2px solid #F4D35E;
   padding: 28px 18px;
   text-align: center;
   position: relative;
@@ -613,13 +613,48 @@
 /* =========================
    NAVBAR ESTILO DOMASELO
    ========================= */
+.react-navbar{
+  background: #FE3DE2;
+  padding: 20px 40px;
+}
 
+/* GRID REAL */
+.nav-grid{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+/* LINKS */
+.nav-left,
+.nav-right{
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.nav-left a,
+.nav-right a{
+  color: #F4D35E;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* LOGO CENTRO */
+.nav-center img{
+  height: 140px;   /* 👈 AQUÍ ya sí crece de verdad */
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 6px 15px rgba(0,0,0,0.25));
+}
 
 
 .react-navbar {
   background: #FE3DE2 !important;
-  padding: 28px 0;
-  transition: all .3s ease;
+  padding: 45px 0;   /* 👈 IMPORTANTE: más aire */
+  min-height: 120px; /* 👈 esto es clave */
+  position: relative;
+   overflow: visible;
 }
 
 /* contenedor más ancho */
@@ -656,7 +691,7 @@
   font-size: 17px;
   margin: 0 10px;
   font-weight: 500;
-  color: #FFF3C1;
+  color: #F4D35E;
 
   padding: 8px 14px;
   border-radius: 8px;
@@ -677,14 +712,14 @@
 .blog-background h1,
 .blog-background h2,
 .blog-background h3 {
-  color: #FBC02D !important;
+  color: #F4D35E !important;
 }
 
 .blog-title {
   text-align: center;
   font-size: 2.2rem;
   font-weight: 700;
-  color: #FBC02D;
+  color: #F4D35E;
   margin-bottom: 40px;
   position: relative;
 }
@@ -929,7 +964,7 @@
 /* BARRA PROMOCIONAL */
 .promo-bar {
   width: 100%;
-  background: #FFF3C1;
+  background: #F4D35E;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -943,7 +978,7 @@
 }
 
 .footer-social {
-  color: #FBC02D;
+  color: #F4D35E;
   font-size: 20px;
   text-decoration: none;
 }
@@ -958,12 +993,12 @@
 }
 
 .footer-social:hover {
-  color: #FBC02D;
+  color: #F4D35E;
 }
 
 .footer-dom {
   background: #ffffff;
-  color: #FBC02D;
+  color: #F4D35E;
 }
 
 /* imagen girando */
@@ -973,12 +1008,12 @@
 }
 
 .footer-links a {
-  color: #FBC02D;
+  color: #F4D35E;
   text-decoration: none;
 }
 
 .text-center a {
-  color: #FBC02D;
+  color: #F4D35E;
   text-decoration: none;
 }
 
@@ -988,7 +1023,7 @@
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.5px;
-  color: #FBC02D;
+  color: #F4D35E;
 }
 
 .sucursales-hero h2 {
@@ -997,16 +1032,16 @@
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.5px;
-  color: #FBC02D;
+  color: #F4D35E;
 }
 
 .footer-links a:hover {
-  color: #FBC02D;
+  color: #F4D35E;
   text-decoration: underline;
 }
 
 .footer-links a:visited {
-  color: #FBC02D;
+  color: #F4D35E;
 }
 
 @keyframes spin {
@@ -1022,13 +1057,13 @@
 }
 
 .hero-maglowv {
-  background: linear-gradient(135deg, #FFF3C1, #FFF3C1);
+  background: linear-gradient(135deg, #F4D35E, #F4D35E);
   color: white;
   padding: 80px 0;
 }
 
 .hero-badge {
-  color: #d4af37;
+  color: #F4D35E;
   font-weight: 600;
   font-size: 14px;
 }
@@ -1060,7 +1095,7 @@
   content: "✔";
   position: absolute;
   left: 0;
-  color: #d4af37;
+  color: #F4D35E;
 }
 
 .hero-buttons {
@@ -1071,7 +1106,7 @@
 
 /* BOTÓN DORADO */
 .btn-gold {
-  background: linear-gradient(45deg, #d4af37, #f1c40f);
+  background: linear-gradient(45deg, #F4D35E, #F4D35E);
   color: black;
   padding: 10px 20px;
   border-radius: 30px;
@@ -1081,15 +1116,15 @@
 
 /* BOTÓN BORDE */
 .btn-outline {
-  border: 2px solid #d4af37;
-  color: #d4af37;
+  border: 2px solid #F4D35E;
+  color: #F4D35E;
   padding: 10px 20px;
   border-radius: 30px;
   text-decoration: none;
 }
 
 .btn-outline:hover {
-  background: #d4af37;
+  background: #F4D35E;
   color: black;
 }
 
@@ -1114,10 +1149,22 @@
 .blog-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, 0.75),
-      rgba(0, 0, 0, 0.2),
-      transparent);
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.85),
+    rgba(0,0,0,0.35),
+    transparent 70%
+  );
+  transition: all .4s ease;
+}
+
+.blog-card:hover .blog-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(201,168,76,0.25),
+    rgba(0,0,0,0.4),
+    transparent 70%
+  );
 }
 
 .blog-content {
@@ -1140,4 +1187,182 @@
   height: 250px;
   object-fit: contain;  /* 👈 evita deformación */
   background: #fff;     /* relleno elegante */
+}
+
+.hero{
+    text-align: center;
+    padding: 80px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 7px 16px;
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .3px;
+
+    color: #7a1b5a;
+
+    background: linear-gradient(135deg, #ffe6f0, #fff0f7);
+    border: 1px solid rgba(255, 105, 180, 0.25);
+
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.12);
+
+    backdrop-filter: blur(8px);
+
+    transition: all .3s ease;
+}
+
+.badge:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.2);
+}
+
+h1{
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 10px 0;
+}
+
+.highlight{
+    color: #e76aa8;
+}
+
+.description{
+    max-width: 520px;
+    margin: 20px auto;
+    color: #666;
+    font-size: 16px;
+}
+
+.actions{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn{
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.primary{
+    background: #F4D35E;
+    color: #fff;
+}
+
+.secondary{
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.mag-about-section{
+  background: #f7f5f0;
+  border-radius: 24px;
+  margin: 40px 0;
+}
+
+/* Avatar */
+.avatar-box{
+  width: 180px;
+  height: 180px;
+  border-radius: 20px;
+  background: #f3f1ec;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  margin: auto;
+}
+
+.avatar-letter{
+  font-size: 60px;
+  font-family: serif;
+  color: #d94f73;
+}
+
+/* Badge line */
+.about-badge{
+  width: 60px;
+  height: 3px;
+  background: #d94f73;
+  border-radius: 10px;
+}
+
+/* Text */
+.about-title{
+  font-size: 28px;
+  font-weight: 600;
+  color: #222;
+}
+
+.about-text{
+  color: #555;
+  line-height: 1.7;
+  margin-top: 10px;
+}
+
+/* Tags */
+.about-tags{
+  margin-top: 15px;
+  display:flex;
+  flex-wrap: wrap;
+  gap:10px;
+}
+
+.about-tags span{
+  font-size: 13px;
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: #444;
+}
+
+/* Button */
+.about-btn{
+  display:inline-block;
+  background: #111;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.about-btn:hover{
+  background: #d94f73;
+}
+
+.logo-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 5px; /* 👈 antes estaba muy arriba */
+  z-index: 999;
+}
+
+.logo-wrapper img {
+  height: 180px;   /* 👈 más grande real */
+  width: auto;
+  max-width: none; /* 👈 evita compresión */
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.25));
+}
+
+.mag-card-image img {
+  transition: transform .6s ease;
+}
+
+.mag-card:hover .mag-card-image img {
+  transform: scale(1.08);
 }
