@@ -11,8 +11,6 @@ Route::get('/blog/post/{slug}', [SeoController::class, 'post']);
 Route::get('/pagina/{slug}', [SeoController::class, 'pagina']);
 // routes/web.php
 Route::get('/sitemap.xml', [SeoController::class, 'sitemap']);
-Route::get('/diamantado-rines-cdmx', [SeoController::class, 'diamantado']);
-Route::get('/enderezado-rines', [SeoController::class, 'enderezado']);
 
 Route::get('/nosotros', [SeoController::class, 'nosotros']);
 Route::get('/preguntas', [SeoController::class, 'preguntas']);

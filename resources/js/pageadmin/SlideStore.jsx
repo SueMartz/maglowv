@@ -5,12 +5,12 @@ import Sidebar from './Sidebar';
 
 const SlideStore = () => {
   const [frase, setFrase] = useState('');
-  const [link, setLink] = useState('');
+  const [link, setLink] = useState('https://wa.me/5215539418612?text=Hola%20necesito%20información');
   const [posicion, setPosicion] = useState('');
   const [urlfoto, setUrlfoto] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
-  const whatsappUrl = `https://wa.me/5215548488280?text=Hola%20necesito%20información`;
+
 
   const handleInputChange = (e) => {
     const file = e.target.files[0];
@@ -71,7 +71,7 @@ const SlideStore = () => {
                   <input
                     type="url"
                     className="form-control"
-                    value={whatsappUrl}
+                    value={link}
                     onChange={(e) => setLink(e.target.value)}
                   />
                 </div>

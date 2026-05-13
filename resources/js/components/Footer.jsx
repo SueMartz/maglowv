@@ -17,21 +17,18 @@ const Footer = () => {
             <img
               src="/img/logo.png"
               alt="Jeax"
-              style={{ width: "120px" }}
+              style={{ width: "100px" }}
             />
           </div>
 
           {/* INFORMACIÓN */}
           <div className="col-md-4 mb-4">
-            <h5 className="fw-bold">Jeax</h5>
+            <h5 className="fw-bold">MaGlowV</h5>
 
             <p className="mb-2">
-              Abierto todos los días de 10 a. m. a 7 p. m.
+              Abierto todos los días 
             </p>
 
-            <p className="mb-2">
-              Av Oceanía 291, Pensador Mexicano, Venustiano Carranza, 15510 Ciudad de México, CDMX
-            </p>
 
             <p className="mb-3">
               Teléfono: 55 48 48 82 80

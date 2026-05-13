@@ -37,19 +37,19 @@ class FrontController extends Controller
     }
 
     public function categoria($slug)
-{
-    $data = [];
-    $categoria = Categoria::whereSlug($slug)->first();
+    {
+        $data = [];
+        $categoria = Categoria::whereSlug($slug)->first();
 
-    if (!empty($categoria)) {
-        $data = [
-            'categoria' => $categoria,
-            'productos' => $categoria->productos()->orderBy('name')->get()
-        ];
+        if (!empty($categoria)) {
+            $data = [
+                'categoria' => $categoria,
+                'productos' => $categoria->productos()->orderBy('name')->get()
+            ];
+        }
+
+        return response()->json($data, 200);
     }
-
-    return response()->json($data, 200);
-}
     // Nuevo método para obtener slides
     public function slides()
     {
@@ -65,24 +65,24 @@ class FrontController extends Controller
     }
 
     public function ComentariosAdd(Request $request)
-{
-    $request->validate([
-        'nombre' => 'required|string|max:255',
-        'comentario' => 'required|string',
-        'email' => 'nullable|email',
-        'rating' => 'nullable|integer|min:1|max:5'  // <-- nuevo campo rating validado
-    ]);
+    {
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'comentario' => 'required|string',
+            'email' => 'nullable|email',
+            'rating' => 'nullable|integer|min:1|max:5'  // <-- nuevo campo rating validado
+        ]);
 
-    $comentario = Comentario::create($request->all());
+        $comentario = Comentario::create($request->all());
 
-    return response()->json(['message' => 'Comentario enviado, pendiente de aprobación.'], 201);
-}
+        return response()->json(['message' => 'Comentario enviado, pendiente de aprobación.'], 201);
+    }
 
     public function comentariosAprobados()
-{
-    $comentarios = Comentario::where('aprobado', true)->orderByDesc('created_at')->get();
-    return response()->json($comentarios, 200);
-}
+    {
+        $comentarios = Comentario::where('aprobado', true)->orderByDesc('created_at')->get();
+        return response()->json($comentarios, 200);
+    }
 
     public function posts()
     {
@@ -102,18 +102,26 @@ class FrontController extends Controller
     }
     public function categoriasBySlug($slug)
 
-{
-    $categoria = Categoria::where('slug', $slug)->first();
+    {
+        $categoria = Categoria::where('slug', $slug)->first();
 
-    if ($categoria) {
-        $productos = $categoria->productos()->orderBy('name')->get();
-        return response()->json([
-            'categoria' => $categoria,
-            'productos' => $productos
-        ]);
+        if ($categoria) {
+            $productos = $categoria->productos()->orderBy('name')->get();
+            return response()->json([
+                'categoria' => $categoria,
+                'productos' => $productos
+            ]);
+        }
+
+        return response()->json(null);
     }
+    public function categoriasConProductos()
+    {
+        $categorias = Categoria::with(['productos' => function ($query) {
+            $query->orderBy('name');
+        }])->get();
 
-    return response()->json(null);
-}
+        return response()->json($categorias, 200);
+    }
 
 }

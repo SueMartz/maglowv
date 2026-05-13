@@ -23,6 +23,7 @@ export default {
   getCategoriaById: (id) => axios.get(`${base_api_url}/admin/categoria/${id}`, authHeader()),
   getCategoriaUpdate: (data, id) => axios.put(`${base_api_url}/admin/categoria/${id}`, data, authHeader()),
   getCategoriaDeleteById: (id) => axios.delete(`${base_api_url}/admin/categoria/${id}`, authHeader()),
+  getCategoriasConProductos: () => axios.get(`${base_api_url}/categorias-productos`, authHeader()),
 
   getProductoAll: () => axios.get(`${base_api_url}/admin/producto`, authHeader()),
   getProductoStore: (data) => axios.post(`${base_api_url}/admin/producto`, data, authHeader()),

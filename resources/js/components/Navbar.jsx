@@ -38,7 +38,7 @@ const Navbar = () => {
     } else {
       return (
         <li className="nav-item">
-          <Link className="nav-link text-rosa" to="/login">
+          <Link className="react-nav-link text-rosa" to="/login">
             Login
           </Link>
         </li>
@@ -54,9 +54,13 @@ const Navbar = () => {
 
         {/* Nav izquierda */}
         <div className="d-none d-lg-flex gap-3">
-          <Link className="nav-link text-rosa" to="/">Inicio</Link>
-          <Link className="nav-link text-rosa" to="/categorias">Categorías</Link>
-          <Link className="nav-link text-rosa" to="/blog">Blog</Link>
+          <Link className="react-nav-link text-rosa" to="/">Inicio</Link>
+          <Link className="react-nav-link text-rosa" to="/cuadros">Cuadros</Link>
+          <Link className="react-nav-link text-rosa" to="/unas">Uñas</Link>
+          <Link className="react-nav-link text-rosa" to="/bisuteria">bisuteria</Link>
+          <Link className="react-nav-link text-rosa" to="/me">Sobre mí</Link>
+          <Link className="react-nav-link text-rosa" to="/blog">Blog</Link>
+          <Link className="react-nav-link text-rosa" to="/categorias">Categorías</Link>
         </div>
 
         {/* Logo centrado */}
@@ -86,7 +90,8 @@ const Navbar = () => {
       </div>
     </nav><div className="promo-bar">
         <div className="promo-track">
-          <span>🏁 Si buscas elegancia, estilo y seguridad… elige JEAX. Hacemos que la perfección ruede.”👀 🏁</span>
+          <span>💅✨ Diseños que enamoran, cuadros con personalidad y bisutería que ilumina tu estilo.
+MaGlowV 💎 haciendo que cada detalle brille contigo.</span>
           
         </div>
       </div></>

@@ -27,6 +27,7 @@ const Home = () => {
   const [comentarios, setComentarios] = useState([]);
   const [paginas, setPaginas] = useState([]);
   const [selected, setSelected] = useState(null);
+  const [catalogo, setCatalogo] = useState([]);
 
   useEffect(() => {
     getEmpresas();
@@ -35,7 +36,14 @@ const Home = () => {
     getPosts();
     getPaginas();
     getComentarios();
+    getCatalogo();
   }, []);
+
+  const getCatalogo = async () => {
+  const response = await Config.getCategoriasConProductos();
+  setCatalogo(response.data);
+  };
+
 
   const getEmpresas = async () => {
     const response = await Config.getEmpresas(5);
@@ -91,163 +99,102 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <div className="hero-jeax">
-        <div className="container">
-          <div className="row align-items-center">
+      <div className="maglowv-home">
 
-            <div className="col-md-6">
-              <div className="hero-content">
-                <span className="hero-badge">⭐ Servicio Premium en Rines</span>
+  {catalogo.map((categoria, index) => (
 
-                <h1>Deja tus rines como nuevos</h1>
+    <section
+      className={`mag-section ${index % 2 === 0 ? 'bg-light-custom' : 'bg-beige'}`}
+      key={categoria.id}
+    >
 
-                <p>
-                  Expertos en reparación, restauración y personalización de rines.
-                  Dale a tu vehículo un acabado profesional y de alto nivel.
-                </p>
+      <div className="container">
 
-                <ul>
-                  <li>Enderezado y nivelado profesional</li>
-                  <li>Diamantado, pintura y pulido</li>
-                  <li>Personalización y venta de rines deportivos</li>
-                </ul>
+        {/* HEADER */}
+        <div className="section-header">
 
-                <div className="hero-buttons">
-                  <a href="/categorias" className="btn-gold">Ver servicios</a>
-                  <a
-                    href="https://wa.me/5215548488280?text=Hola%20quiero%20agendar%20una%20cita"
-                    className="btn-outline"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >Agendar cita</a>
-                </div>
-              </div>
-            </div>
+          <span className="section-badge">
+            {categoria.nombre}
+          </span>
 
-            <div className="col-md-6 text-center">
-              <img
-                src="/img/Escarabajo.jpeg"
-                alt="Rines premium"
-                className="hero-img"
-              />
-            </div>
+          <h2>
+            {categoria.nombre}
+          </h2>
 
-          </div>
+          <p>
+            {categoria.descripcion}
+          </p>
+
         </div>
-      </div>
 
-      <Swiper
-        modules={[Autoplay]}
-        spaceBetween={20}
-        slidesPerView={4}
-        loop={true}
-        autoplay={{ delay: 2500 }}
-        breakpoints={{
-          0: { slidesPerView: 1 },
-          600: { slidesPerView: 2 },
-          900: { slidesPerView: 3 },
-          1200: { slidesPerView: 4 }
-        }}
-      >
-        {categoriasHome.map((categoria, index) => (
-          <SwiperSlide key={categoria.id}>
-            <div className="service-card">
+        {/* PRODUCTOS */}
+        <div className="row g-4">
 
-              <span className="card-number">
-                {String(index + 1).padStart(2, '0')}
-              </span>
+          {categoria.productos?.map((producto) => (
 
-              <div className="card-icon">
-                <div className="icon-circle">
+            <div className="col-md-4" key={producto.id}>
+
+              <div className="mag-card h-100">
+
+                <div className="mag-card-image">
+
                   <img
-                    src={`/img/categoria/${categoria.urlfoto || 'foto.jpg'}`}
-                    className="circle-img"
-                    alt={categoria.nombre}
+                    src={`/img/producto/${producto.image || 'foto.jpg'}`}
+                    alt={producto.name}
                   />
+
                 </div>
 
-              </div>
+                <div className="mag-card-body">
 
-              <div className="card-title">
-                {categoria.nombre}
-              </div>
+                  <span className="product-tag">
+                    {categoria.nombre}
+                  </span>
 
-              <div className="card-description">
-                {categoria.descripcion || 'Descripción de la categoría'}
-              </div>
+                  <h4>
+                    {producto.name}
+                  </h4>
 
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-
-
-      <div className="sucursales-hero py-5">
-        <h2 className="text-center mb-4 fw-bold">
-          Visitanos
-        </h2>
-
-        <div className="row">
-          <div className="col-lg-7 mb-4">
-            {selected && (
-              <iframe
-                title="mapa"
-                width="100%"
-                height="520"
-                style={{ border: 0, borderRadius: "12px" }}
-                loading="lazy"
-                src={`https://maps.google.com/maps?q=${selected.latitud},${selected.longitud}&z=14&output=embed`}
-              ></iframe>
-            )}
-          </div>
-
-          <div className="col-lg-5">
-            <div className="locations-list">
-              {empresas.map((empresa) => (
-                <div
-                  key={empresa.id}
-                  className="list-group-item p-3 mb-3 shadow-sm rounded"
-                >
-                  <div className="d-flex">
-                    <img
-                      src={`/img/empresa/${empresa.urlfoto}`}
-                      alt={empresa.nombre}
-                      style={{
-                        width: "150x",
-                        height: "120px",
-                        objectFit: "cover",
-                        borderRadius: "8px",
-                        marginRight: "15px"
-                      }}
-                    />
-
-                    <div>
-                      <h5 className="mb-1">{empresa.nombre}</h5>
-
-                      <p className="mb-1 small">{empresa.direccion}</p>
-                      <p className="mb-1 small">{empresa.telefono}</p>
-                      <p className="mb-1 small">{empresa.descripcion}</p>
-                      <p className="mb-1 small">
-                        Horario de la tienda
-                        de 10 a. m. a 7 p. m. todos los días.
-                      </p>
-
-                      <div className="d-flex gap-2 mt-2">
-                        <button
-                          className="btn btn-sm btn-outline-dark"
-                          onClick={() => mostrarMapa(empresa)}
-                        >
-                          Ver ubicación
-                        </button>
-                      </div>
-                    </div>
+                  <div className="product-price">
+                    ${producto.precio} MXN
                   </div>
+
+                  <p>
+                    {producto.descripcion}
+                  </p>
+
+                  <button
+                    className="btn-maglowv"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setModal(true);
+                      setDatamodal(producto);
+                    }}
+                  >
+                    Ver más
+                  </button>
+
                 </div>
-              ))}
+
+              </div>
+
             </div>
-          </div>
+
+          ))}
+
         </div>
+
       </div>
+
+    </section>
+
+  ))}
+
+</div>
+
+      
+
+
 
       <div className="pt-5 react-blog-section">
         <h2 className="text-center mb-4">📰 Blog y Contenidos</h2>

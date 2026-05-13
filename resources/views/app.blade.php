@@ -4,35 +4,42 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ $seo['title'] ?? 'JEAX Store' }}</title>
-    <meta name="description" content="{{ $seo['description'] ?? '' }}">
+    <title>{{ $seo['title'] ?? 'Maglowv Studio' }}</title>
+
+    <meta name="description" content="{{ $seo['description'] ?? 'Maglowv Studio - Uñas, arte y bisutería artesanal hecha con creatividad y estilo.' }}">
+
+    <meta name="keywords" content="uñas, nail art, cuadros decorativos, arte, bisutería artesanal, accesorios, Maglowv Studio">
+
     <meta name="robots" content="index, follow">
+
     <link rel="canonical" href="{{ $seo['url'] ?? url()->current() }}">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="{{ $seo['title'] ?? 'JEAX Store' }}">
-    <meta property="og:description" content="{{ $seo['description'] ?? '' }}">
+    <meta property="og:title" content="{{ $seo['title'] ?? 'Maglowv Studio' }}">
+
+    <meta property="og:description" content="{{ $seo['description'] ?? 'Diseños de uñas, cuadros decorativos y bisutería artesanal únicos.' }}">
+
     <meta property="og:url" content="{{ $seo['url'] ?? url()->current() }}">
+
     <meta property="og:type" content="website">
 
-    <!-- Schema negocio local -->
+    <meta property="og:site_name" content="Maglowv Studio">
+
+    <!-- Schema.org -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "AutoRepair",
-        "name": "JEAX Store",
-        "description": "Especialistas en reparación de rines",
-        "url": "https://jeax.store",
+        "@type": "BeautySalon",
+        "name": "Maglowv Studio",
+        "description": "Estudio creativo especializado en uñas, arte decorativo y bisutería artesanal.",
+        "url": "https://maglowv.com",
         "serviceType": [
-            "Enderezado y nivelado de rines",
-            "Pintura automotriz en rines",
-            "Soldadura en aluminio",
-            "Diamantado en rines",
-            "Pulido en rines",
-            "Barrenado de rines",
-            "Car Detailing",
-            "Enderezado de rines de moto",
-            "Pintura en rines de moto"
+            "Diseño de uñas",
+            "Nail Art",
+            "Aplicación de uñas",
+            "Cuadros decorativos pintados a mano",
+            "Bisutería artesanal",
+            "Accesorios personalizados"
         ]
     }
     </script>

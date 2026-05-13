@@ -30,7 +30,7 @@ const SliderHome = ({ slides }) => {
                 <h5>{slide.frase}</h5>
                 {slide.link && (
                   <a
-                    href={`https://wa.me/5215548488280?text=${encodeURIComponent('¡Hola! Quiero más información')}`}
+                    href={`https://wa.me/5215539418612?text=${encodeURIComponent('¡Hola! Quiero más información')}`}
                     className="btn-slide"
                     target="_blank"
                     rel="noopener noreferrer"

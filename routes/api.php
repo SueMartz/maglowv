@@ -16,6 +16,7 @@ use App\Http\Controllers\Api\Admin\ComentarioController; // Asegúrate que este 
 
 Route::prefix('v1')->group(function () {
     // Rutas públicas
+    Route::get('/categorias-productos', [FrontController::class, 'categoriasConProductos']);
     Route::get('/public/empresas/{quantity}', [FrontController::class, 'empresas']);
     Route::post('/public/empresas/search', [FrontController::class, 'search']);
     Route::get('/public/categorias/{slug}', [FrontController::class, 'categoria']);
