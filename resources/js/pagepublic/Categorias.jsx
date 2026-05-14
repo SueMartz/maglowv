@@ -100,7 +100,7 @@ const Categorias = () => {
                     <Link
                       to={`/categorias/${categoria.slug}`}
                       className="btn w-100 fw-semibold"
-                      style={{ backgroundColor: '#F4D35E', color: '#5f585b' }}
+                      style={{ backgroundColor: '#FFF3C1', color: '#5f585b' }}
                     >
                       {categoria.nombre}
                     </Link>

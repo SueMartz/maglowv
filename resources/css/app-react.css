@@ -238,7 +238,7 @@
 }
 
 .btn-rosa {
-  background: linear-gradient(135deg, #F4D35E, #F4D35E);
+  background: linear-gradient(135deg, #FFF3C1, #FFF3C1);
   color: white;
   transition: all 0.3s ease;
 }
@@ -251,7 +251,7 @@
 .service-card {
   background: #0D0D0D;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  border-top: 2px solid #F4D35E;
+  border-top: 2px solid #FFF3C1;
   padding: 28px 18px;
   text-align: center;
   position: relative;
@@ -635,7 +635,7 @@
 
 .nav-left a,
 .nav-right a{
-  color: #F4D35E;
+  color: #FFF3C1;
   text-decoration: none;
   font-weight: 500;
 }
@@ -691,7 +691,7 @@
   font-size: 17px;
   margin: 0 10px;
   font-weight: 500;
-  color: #F4D35E;
+  color: #FFF3C1;
 
   padding: 8px 14px;
   border-radius: 8px;
@@ -712,14 +712,14 @@
 .blog-background h1,
 .blog-background h2,
 .blog-background h3 {
-  color: #F4D35E !important;
+  color: #FFF3C1 !important;
 }
 
 .blog-title {
   text-align: center;
   font-size: 2.2rem;
   font-weight: 700;
-  color: #F4D35E;
+  color: #FFF3C1;
   margin-bottom: 40px;
   position: relative;
 }
@@ -964,7 +964,7 @@
 /* BARRA PROMOCIONAL */
 .promo-bar {
   width: 100%;
-  background: #F4D35E;
+  background: #FFF3C1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -978,7 +978,7 @@
 }
 
 .footer-social {
-  color: #F4D35E;
+  color: #FFF3C1;
   font-size: 20px;
   text-decoration: none;
 }
@@ -993,12 +993,12 @@
 }
 
 .footer-social:hover {
-  color: #F4D35E;
+  color: #FFF3C1;
 }
 
 .footer-dom {
   background: #ffffff;
-  color: #F4D35E;
+  color: #FFF3C1;
 }
 
 /* imagen girando */
@@ -1008,12 +1008,12 @@
 }
 
 .footer-links a {
-  color: #F4D35E;
+  color: #FFF3C1;
   text-decoration: none;
 }
 
 .text-center a {
-  color: #F4D35E;
+  color: #FFF3C1;
   text-decoration: none;
 }
 
@@ -1023,7 +1023,7 @@
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.5px;
-  color: #F4D35E;
+  color: #FFF3C1;
 }
 
 .sucursales-hero h2 {
@@ -1032,16 +1032,16 @@
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.5px;
-  color: #F4D35E;
+  color: #FFF3C1;
 }
 
 .footer-links a:hover {
-  color: #F4D35E;
+  color: #FFF3C1;
   text-decoration: underline;
 }
 
 .footer-links a:visited {
-  color: #F4D35E;
+  color: #FFF3C1;
 }
 
 @keyframes spin {
@@ -1057,13 +1057,13 @@
 }
 
 .hero-maglowv {
-  background: linear-gradient(135deg, #F4D35E, #F4D35E);
+  background: linear-gradient(135deg, #FFF3C1, #FFF3C1);
   color: white;
   padding: 80px 0;
 }
 
 .hero-badge {
-  color: #F4D35E;
+  color: #FFF3C1;
   font-weight: 600;
   font-size: 14px;
 }
@@ -1095,7 +1095,7 @@
   content: "✔";
   position: absolute;
   left: 0;
-  color: #F4D35E;
+  color: #FFF3C1;
 }
 
 .hero-buttons {
@@ -1106,7 +1106,7 @@
 
 /* BOTÓN DORADO */
 .btn-gold {
-  background: linear-gradient(45deg, #F4D35E, #F4D35E);
+  background: linear-gradient(45deg, #FFF3C1, #FFF3C1);
   color: black;
   padding: 10px 20px;
   border-radius: 30px;
@@ -1116,15 +1116,15 @@
 
 /* BOTÓN BORDE */
 .btn-outline {
-  border: 2px solid #F4D35E;
-  color: #F4D35E;
+  border: 2px solid #FFF3C1;
+  color: #FFF3C1;
   padding: 10px 20px;
   border-radius: 30px;
   text-decoration: none;
 }
 
 .btn-outline:hover {
-  background: #F4D35E;
+  background: #FFF3C1;
   color: black;
 }
 
@@ -1257,7 +1257,7 @@ h1{
 }
 
 .primary{
-    background: #F4D35E;
+    background: #FFF3C1;
     color: #fff;
 }
 
