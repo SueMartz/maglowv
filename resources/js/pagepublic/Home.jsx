@@ -136,6 +136,9 @@ const Home = () => {
 
                     <div className="mag-card h-100">
 
+
+
+
                       <div className="mag-card-image">
 
                         <img
@@ -147,35 +150,55 @@ const Home = () => {
 
                       <div className="mag-card-body">
 
-                        <span className="product-tag">
-                          {categoria.nombre}
+  <span className="product-tag">
+    {categoria.nombre}
+  </span>
 
-                        </span>
+  {/* código pequeño */}
+  {producto.code && (
+    <div className="product-code">
+      {producto.code}
+    </div>
+  )}
 
-                        <h4>
-                          {producto.name} <span className="pipe-divider">|</span> {producto.title}
-                        </h4>
+  {/* nombre principal */}
+  <h4 className="product-name">
+    {producto.name}
+  </h4>
 
-                        <div className="product-price">
-                          ${producto.price} MXN
-                        </div>
+  {/* subtitulo elegante */}
+  {producto.title && (
+    <div className="product-subtitle">
+      {producto.title}
+    </div>
+  )}
 
-                        <p>
-                           {producto.description} <span className="pipe-divider">|</span> {producto.details}
-                        </p>
+  <div className="product-price">
+    ${producto.price} MXN
+  </div>
 
-                        <button
-                          className="btn-maglowv"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            setModal(true);
-                            setDatamodal(producto);
-                          }}
-                        >
-                          Ver más
-                        </button>
+  <p className="product-description">
+    {producto.description}
+  </p>
 
-                      </div>
+  {producto.details && (
+    <div className="product-details">
+      {producto.details}
+    </div>
+  )}
+
+  <button
+    className="btn-maglowv"
+    onClick={(e) => {
+      e.preventDefault();
+      setModal(true);
+      setDatamodal(producto);
+    }}
+  >
+    Ver más
+  </button>
+
+</div>
 
                     </div>
 

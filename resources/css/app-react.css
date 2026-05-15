@@ -1932,4 +1932,15 @@ h1 {
   .contacto-tagline {
     text-align: left;
   }
+
+  .pipe-divider{
+  margin: 0 12px;
+  color: #FE3DE2;
+
+  text-shadow:
+    0 0 8px rgba(254,61,226,.8),
+    0 0 18px rgba(254,61,226,.5);
+
+  font-weight: 300;
+}
 }
