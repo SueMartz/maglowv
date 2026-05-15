@@ -156,7 +156,7 @@ const Home = () => {
                         </h4>
 
                         <div className="product-price">
-                          ${producto.precio} MXN
+                          ${producto.price} MXN
                         </div>
 
                         <p>
