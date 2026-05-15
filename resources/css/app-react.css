@@ -21,17 +21,71 @@
   margin-bottom: 50px;
 }
 
-.section-badge {
+.section-badge:hover::after{
+  width: 90%;
+
+  box-shadow:
+    0 0 14px rgba(254,61,226,1),
+    0 0 30px rgba(254,61,226,.7);
+
+  transition: all .35s ease;
+}
+
+.section-badge{
+  position: relative;
   display: inline-block;
+
   font-size: 12px;
-  letter-spacing: 6px;
+  letter-spacing: 5px;
   text-transform: uppercase;
-  color: #FFF3C1;
+
+  color: #FFF3C1 !important;
 
   text-shadow:
-    0 0 8px rgba(254, 61, 226, 0.30);
+    0 0 8px rgba(254, 61, 226, 0.75),
+    0 0 16px rgba(254, 61, 226, 0.55),
+    0 0 28px rgba(254, 61, 226, 0.35);
 
-  margin-bottom: 15px;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+
+  transition: all .35s ease;
+}
+
+/* línea rosa elegante */
+.section-badge::after{
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  width: 65%;
+  height: 2px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(254,61,226,0),
+    #FE3DE2,
+    rgba(254,61,226,0)
+  );
+
+  box-shadow:
+    0 0 10px rgba(254,61,226,.8),
+    0 0 20px rgba(254,61,226,.5);
+}
+
+.section-badge:hover{
+  transform: translateY(-2px);
+
+  text-shadow:
+    0 0 12px #FE3DE2,
+    0 0 24px rgba(254,61,226,.85),
+    0 0 40px rgba(254,61,226,.65);
 }
 
 .section-header h2 {
@@ -105,15 +159,76 @@
   padding: 25px;
 }
 
-.product-tag {
+.product-tag{
+  position: relative;
   display: inline-block;
-  background: #f8dfe7;
-  color: #cf4b7a;
+
+  background: rgba(254, 61, 226, 0.10);
+  color: #FFF3C1;
+
   font-size: 12px;
-  padding: 6px 14px;
-  border-radius: 30px;
-  margin-bottom: 15px;
   font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+
+  padding: 8px 16px 14px;
+  border-radius: 30px;
+
+  margin-bottom: 15px;
+
+  border: 1px solid rgba(254,61,226,.25);
+
+  text-shadow:
+    0 0 8px rgba(254,61,226,.75),
+    0 0 16px rgba(254,61,226,.45);
+
+  box-shadow:
+    0 4px 20px rgba(254,61,226,.12);
+
+  transition: all .35s ease;
+}
+
+/* línea glow rosa */
+.product-tag::after{
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+
+  transform: translateX(-50%);
+
+  width: 60%;
+  height: 2px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(254,61,226,0),
+    #FE3DE2,
+    rgba(254,61,226,0)
+  );
+
+  box-shadow:
+    0 0 10px rgba(254,61,226,.85),
+    0 0 20px rgba(254,61,226,.55);
+}
+
+/* hover premium */
+.product-tag:hover{
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 30px rgba(254,61,226,.25);
+
+  text-shadow:
+    0 0 12px #FE3DE2,
+    0 0 24px rgba(254,61,226,.85);
+}
+
+.product-tag:hover::after{
+  width: 85%;
 }
 
 .mag-card-body h4 {
