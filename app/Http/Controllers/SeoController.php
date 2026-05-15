@@ -164,38 +164,56 @@ HTML;
     |--------------------------------------------------------------------------
     */
 
-    public function contacto()
+        public function contacto()
     {
         $content = '
         <main>
-            <article>
+            <article class="contacto-page">
 
-                <h1>Contacto | MaGlowV Studio</h1>
+                <header class="contacto-header">
+                    <div class="contacto-brand">
+                        <span class="studio-label">MaGlowV Studio</span>
+                        <h1>Agenda tu <em>cita</em></h1>
+                    </div>
+                    <p class="contacto-tagline">Arte en cada trazo,<br>desde tus uñas hasta tu espacio</p>
+                </header>
 
-                <section>
-                    <h2>Agenda tu cita</h2>
-
+                <div class="contacto-intro">
                     <p>
-                        Contáctanos para diseños de uñas, cuadros decorativos
-                        y bisutería artesanal personalizada.
+                        <strong>Marlem Verastegui</strong> transforma el arte en experiencias únicas:
+                        diseño de uñas, cuadros de su autoría y bisutería artesanal creados con
+                        la misma pasión y detalle que definen su estudio.
                     </p>
-                </section>
+                </div>
 
-                <section>
-                    <h2>WhatsApp</h2>
+                <div class="contacto-canales">
 
-                    <p>
-                        <a href="https://wa.me/5210000000000">
-                            Enviar mensaje
+                    <section class="canal-card">
+                        <span class="canal-label">WhatsApp</span>
+                        <h2>Agendar cita</h2>
+                        <p>Disponible para consultas, presupuestos y diseños personalizados</p>
+                        <a href="https://wa.me/5215539418612" class="canal-cta">
+                            Enviar mensaje <span aria-hidden="true">→</span>
                         </a>
-                    </p>
-                </section>
+                    </section>
 
-                <section>
-                    <h2>Instagram</h2>
+                    <section class="canal-card">
+                        <span class="canal-label">Instagram</span>
+                        <h2>@maglow_v</h2>
+                        <p>Galería de diseños, inspiración y obras recientes</p>
+                        <a href="https://instagram.com/maglow_v" class="canal-cta">
+                            Ver perfil <span aria-hidden="true">→</span>
+                        </a>
+                    </section>
 
-                    <p>@maglowv</p>
-                </section>
+                </div>
+
+                <footer class="contacto-servicios">
+                    <span>Diseño de uñas</span>
+                    <span>Cuadros de autor</span>
+                    <span>Bisutería artesanal</span>
+                    <span>Diseños personalizados</span>
+                </footer>
 
             </article>
         </main>
@@ -203,7 +221,7 @@ HTML;
 
         return $this->renderApp([
             'title'       => 'Contacto | MaGlowV Studio',
-            'description' => 'Agenda tu cita para uñas, nail art y accesorios con diseños originales.'
+            'description' => 'Agenda tu cita con Marlem Verastegui: diseño de uñas, cuadros artísticos y bisutería artesanal personalizada en MaGlowV Studio.',
         ], $content, false);
     }
 
@@ -309,42 +327,77 @@ HTML;
     | NOSOTROS
     |--------------------------------------------------------------------------
     */
-
     public function nosotros()
-    {
-        $content = '
-        <main>
-            <article>
+{
+    $content = '
+    <main>
+        <article class="nosotros-page">
 
-                <h1>Sobre MaGlowV Studio</h1>
+            <header class="nosotros-header">
+                <span class="studio-label">MaGlowV Studio</span>
+                <h1>Sobre <em>nosotros</em></h1>
+            </header>
 
-                <section>
-                    <h2>¿Quiénes somos?</h2>
+            <div class="nosotros-body">
 
+                <div class="nosotros-story">
+                    <blockquote>
+                        El arte no es un oficio, es una forma de ver el mundo —
+                        y Marlem lo plasma en cada trazo, cada cuadro y cada pieza que crea.
+                    </blockquote>
                     <p>
-                        MaGlowV Studio es un espacio creativo dedicado al diseño
-                        de uñas, arte decorativo y bisutería artesanal.
+                        MaGlowV Studio nació de la pasión de Marlem Verastegui por convertir
+                        lo cotidiano en arte. Con más de cinco años de trayectoria, ha construido
+                        un espacio creativo donde el diseño de uñas, la pintura decorativa y la
+                        bisutería artesanal conviven bajo una misma visión: la belleza hecha a
+                        mano, con intención y detalle.
                     </p>
-                </section>
+                </div>
 
-                <section>
-                    <h2>Nuestra misión</h2>
+                <div class="nosotros-stats">
+                    <div class="stat-card">
+                        <span class="stat-num">+5</span>
+                        <span class="stat-label">Años de trayectoria</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num">3</span>
+                        <span class="stat-label">Disciplinas artísticas</span>
+                    </div>
+                </div>
 
+                <div class="nosotros-mision">
+                    <span class="mision-label">Nuestra misión</span>
                     <p>
-                        Crear diseños y piezas únicas que reflejen personalidad,
-                        creatividad y estilo.
+                        Acercar el arte a la vida cotidiana a través de piezas únicas que
+                        reflejen la personalidad de quien las lleva — diseñadas con técnica,
+                        creatividad y el sello inconfundible de Marlem.
                     </p>
-                </section>
+                </div>
 
-            </article>
-        </main>
-        ';
+                <div class="nosotros-tags">
+                    <span>Diseño de uñas</span>
+                    <span>Nail art</span>
+                    <span>Cuadros decorativos</span>
+                    <span>Pintura en acrílico</span>
+                    <span>Bisutería artesanal</span>
+                    <span>Encargos personalizados</span>
+                </div>
 
-        return $this->renderApp([
-            'title'       => 'Sobre nosotros | MaGlowV Studio',
-            'description' => 'Conoce más sobre MaGlowV Studio y nuestro trabajo creativo.'
-        ], $content, false);
-    }
+                <a href="/contacto" class="nosotros-cta">
+                    Agendar una cita →
+                </a>
+
+            </div>
+
+        </article>
+    </main>
+    ';
+
+    return $this->renderApp([
+        'title'       => 'Sobre nosotros | MaGlowV Studio',
+        'description' => 'Conoce a Marlem Verastegui, artista y fundadora de MaGlowV Studio: más de 5 años creando diseños de uñas, cuadros decorativos y bisutería artesanal únicos.',
+    ], $content, false);
+}
 
     /*
     |--------------------------------------------------------------------------

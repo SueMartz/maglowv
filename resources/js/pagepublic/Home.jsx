@@ -339,12 +339,15 @@ const Home = () => {
             </button>
           </div>
 
-          <h2 className="text-center mb-4">Comentarios de Clientes</h2>
+          <h2 className="text-center mb-4">
+            Comentarios de Clientes
+          </h2>
 
           {comentarios.length === 0 && (
-            <p className="text-center">No hay comentarios aún.</p>
+            <p className="text-center no-comments">
+              No hay comentarios aún.
+            </p>
           )}
-
           {comentarios.length > 0 && (
             <Swiper
               modules={[Navigation, Autoplay]}
