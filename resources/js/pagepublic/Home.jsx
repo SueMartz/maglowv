@@ -149,10 +149,11 @@ const Home = () => {
 
                         <span className="product-tag">
                           {categoria.nombre}
+
                         </span>
 
                         <h4>
-                          {producto.name}
+                          {producto.name} <span className="pipe-divider">|</span> {producto.title}
                         </h4>
 
                         <div className="product-price">
@@ -160,7 +161,7 @@ const Home = () => {
                         </div>
 
                         <p>
-                          {producto.descripcion}
+                           {producto.description} <span className="pipe-divider">|</span> {producto.details}
                         </p>
 
                         <button
